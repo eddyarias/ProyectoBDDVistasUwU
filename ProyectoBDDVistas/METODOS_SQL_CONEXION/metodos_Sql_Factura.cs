@@ -138,6 +138,84 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             }
         }
 
+        public void ActualizarFactura(SqlConnection conexion, Factura factura)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para la actualización de datos
+                SqlCommand cmd = new SqlCommand($"UPDATE {tabla} SET " +
+                                                "NUMMATRICULA_VEHICULO = @NumMatriculaVehiculo, " +
+                                                "ID_REPARACION = @IdReparacion, " +
+                                                "ID_TALLER = @IdTaller, " +
+                                                "FECHAEMISION_FACTURA = @FechaEmisionFactura, " +
+                                                "SUBTOTAL_FACTURA = @SubtotalFactura, " +
+                                                "IVA_FACTURA = @IvaFactura, " +
+                                                "TOTAL_FACTURA = @TotalFactura " +
+                                                "WHERE ID_FACTURA = @IdFactura", conexion);
+
+                // Asignar valores a los parámetros utilizando el objeto Factura
+                cmd.Parameters.AddWithValue("@NumMatriculaVehiculo", factura.NumMatriculaVehiculo);
+                cmd.Parameters.AddWithValue("@IdReparacion", factura.IdReparacion);
+                cmd.Parameters.AddWithValue("@IdTaller", factura.IdTaller);
+                cmd.Parameters.AddWithValue("@FechaEmisionFactura", factura.FechaEmisionFactura);
+                cmd.Parameters.AddWithValue("@SubtotalFactura", factura.SubtotalFactura);
+                cmd.Parameters.AddWithValue("@IvaFactura", factura.IvaFactura);
+                cmd.Parameters.AddWithValue("@TotalFactura", factura.TotalFactura);
+                cmd.Parameters.AddWithValue("@IdFactura", factura.IdFactura);
+
+                // Ejecutar la consulta
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar datos de la factura: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        public void EliminarFactura(SqlConnection conexion, string idFactura)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para la eliminación de datos
+                SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_FACTURA = @IdFactura", conexion);
+
+                // Asignar valor al parámetro utilizando el ID_FACTURA
+                cmd.Parameters.AddWithValue("@IdFactura", idFactura);
+
+                // Ejecutar la consulta
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Factura eliminada correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar datos de la factura: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
 
     }
 }

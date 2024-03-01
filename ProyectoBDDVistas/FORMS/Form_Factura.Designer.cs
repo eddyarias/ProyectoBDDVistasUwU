@@ -35,8 +35,8 @@
             actualizarTabPage = new TabPage();
             panel1 = new Panel();
             button2 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtBtotalActEli = new TextBox();
+            txtBivaActEli = new TextBox();
             txtBSubFacActEli = new TextBox();
             label3 = new Label();
             button1 = new Button();
@@ -161,8 +161,8 @@
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(txtBtotalActEli);
+            panel1.Controls.Add(txtBivaActEli);
             panel1.Controls.Add(txtBSubFacActEli);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
@@ -194,23 +194,23 @@
             button2.Text = "Eliminar";
             button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtBtotalActEli
             // 
-            textBox1.Location = new Point(231, 314);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(77, 27);
-            textBox1.TabIndex = 131;
+            txtBtotalActEli.Location = new Point(231, 314);
+            txtBtotalActEli.Margin = new Padding(3, 4, 3, 4);
+            txtBtotalActEli.Name = "txtBtotalActEli";
+            txtBtotalActEli.ReadOnly = true;
+            txtBtotalActEli.Size = new Size(77, 27);
+            txtBtotalActEli.TabIndex = 131;
             // 
-            // textBox2
+            // txtBivaActEli
             // 
-            textBox2.Location = new Point(231, 279);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(77, 27);
-            textBox2.TabIndex = 130;
+            txtBivaActEli.Location = new Point(231, 279);
+            txtBivaActEli.Margin = new Padding(3, 4, 3, 4);
+            txtBivaActEli.Name = "txtBivaActEli";
+            txtBivaActEli.ReadOnly = true;
+            txtBivaActEli.Size = new Size(77, 27);
+            txtBivaActEli.TabIndex = 130;
             // 
             // txtBSubFacActEli
             // 
@@ -238,6 +238,7 @@
             button1.TabIndex = 117;
             button1.Text = "Actualizar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label4
             // 
@@ -650,8 +651,8 @@
         private Label label12;
         private Label label11;
         private Panel panel1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtBtotalActEli;
+        private TextBox txtBivaActEli;
         private TextBox txtBSubFacActEli;
         private Label label3;
         private Label label4;

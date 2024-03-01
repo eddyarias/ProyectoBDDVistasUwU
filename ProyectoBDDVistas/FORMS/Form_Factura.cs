@@ -129,5 +129,28 @@ namespace ProyectoBDDVistas.FORMS
             facturaTabControl.SelectedIndex = 1;
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Factura facturaAct = new Factura(txtBnomClienteFacActEli.Text,
+            txtBmatVehFacActEli.Text, txtBidRepFacActEli.Text, msr.idTaller,
+            dTPFecEmFechaFacActEli.Value, Decimal.Parse(txtBSubFacActEli.Text),
+            Decimal.Parse(txtBivaActEli.Text),
+            Decimal.Parse(txtBtotalActEli.Text));
+
+            if (string.IsNullOrEmpty(txtBnomClienteFacActEli.Text) ||
+                string.IsNullOrEmpty(txtBmatVehFacActEli.Text) ||
+                string.IsNullOrEmpty(txtBidRepFacActEli.Text) ||
+                string.IsNullOrEmpty(txtBSubFacActEli.Text) ||
+                string.IsNullOrEmpty(txtBivaActEli.Text) ||
+                string.IsNullOrEmpty(txtBtotalActEli.Text))
+            {
+                MessageBox.Show("Ingrese todos los campos");
+            }
+            else
+            {
+                msf.ActualizarFactura(Conexion, facturaAct);
+            }
+        }
     }
 }
