@@ -122,7 +122,15 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
 
                 // Cargar detalles de la factura en el DataGridView (puedes ajustar esta parte según tu estructura)
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM DetallesFactura WHERE ID_FACTURA = @IdFactura", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(
+                                                 $"SELECT R.* " +
+                                                 $"FROM {tablaReparacion} R " +
+                                                 $"JOIN {tablaVehiculo} V ON R.NUMMATRICULA_VEHICULO = V.NUMMATRICULA_VEHICULO " +
+                                                 $"JOIN {tablaCliente} C ON V.NOMBRE_CLIENTE = C.NOMBRE_CLIENTE " +
+                                                 $"                     AND V.APELLIDO_CLIENTE = C.APELLIDO_CLIENTE " +
+                                                 $"                     AND V.ID_TALLER = C.ID_TALLER " +
+                                                 $"JOIN {tabla} F ON R.ID_REPARACION = F.ID_REPARACION " +
+                                                 $"WHERE F.ID_FACTURA = @IdFactura", conexion);
                 sqlDataAdapter.SelectCommand.Parameters.AddWithValue("@IdFactura", idFactura);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
