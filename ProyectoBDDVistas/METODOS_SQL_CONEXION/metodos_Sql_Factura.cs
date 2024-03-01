@@ -171,10 +171,16 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 cmd.Parameters.AddWithValue("@TotalFactura", factura.TotalFactura);
                 cmd.Parameters.AddWithValue("@IdFactura", factura.IdFactura);
 
-                // Ejecutar la consulta
-                cmd.ExecuteNonQuery();
+                int rowsAffected = cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Factura actualizada correctamente.");
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Factura actualizada correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró ninguna factura con el ID especificado.");
+                }
             }
             catch (Exception ex)
             {

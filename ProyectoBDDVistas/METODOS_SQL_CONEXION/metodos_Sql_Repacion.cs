@@ -196,9 +196,16 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 cmd.Parameters.AddWithValue("@IdReparacion", idReparacion);
 
                 // Ejecutar la consulta
-                cmd.ExecuteNonQuery();
+                int rowsAffected = cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Reparación eliminada correctamente.");
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Reparacion eliminada correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró ninguna reparacion con el ID especificado.");
+                }
             }
             catch (Exception ex)
             {
