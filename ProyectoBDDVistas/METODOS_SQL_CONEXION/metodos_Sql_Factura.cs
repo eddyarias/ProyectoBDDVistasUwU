@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using ProyectoBDDVistas.CLASES;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,6 +37,45 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 // Manejar cualquier excepción aquí
                 MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
+
+        public void InsertarFactura(SqlConnection conexion, Factura factura)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para la inserción de datos
+                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_FACTURA, NUMMATRICULA_VEHICULO, ID_REPARACION, ID_TALLER, FECHAEMISION_FACTURA, SUBTOTAL_FACTURA, IVA_FACTURA, TOTAL_FACTURA) " +
+                                                "VALUES (@IdFactura, @NumMatriculaVehiculo, @IdReparacion, @IdTaller, @FechaEmisionFactura, @SubtotalFactura, @IvaFactura, @TotalFactura)", conexion);
+
+                // Asignar valores a los parámetros utilizando el objeto Factura
+                cmd.Parameters.AddWithValue("@IdFactura", factura.IdFactura);
+                cmd.Parameters.AddWithValue("@NumMatriculaVehiculo", factura.NumMatriculaVehiculo);
+                cmd.Parameters.AddWithValue("@IdReparacion", factura.IdReparacion);
+                cmd.Parameters.AddWithValue("@IdTaller", factura.IdTaller);
+                cmd.Parameters.AddWithValue("@FechaEmisionFactura", factura.FechaEmisionFactura);
+                cmd.Parameters.AddWithValue("@SubtotalFactura", factura.SubtotalFactura);
+                cmd.Parameters.AddWithValue("@IvaFactura", factura.IvaFactura);
+                cmd.Parameters.AddWithValue("@TotalFactura", factura.TotalFactura);
+
+                // Ejecutar la consulta
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos en la factura: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
             }
         }
     }

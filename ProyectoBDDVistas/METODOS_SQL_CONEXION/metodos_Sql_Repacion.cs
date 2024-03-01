@@ -290,7 +290,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 // Check if there are no rows in the DataTable
                 if (dataTable.Rows.Count == 0)
                 {
-                    MessageBox.Show($"No hay reparaciones asociadas al cliente {nombre} {apellido}");
+                    MessageBox.Show($"No hay reparaciones asociadas al cliente {nombre.Trim()}"+" "+$"{apellido.Trim()}");
                 }
                 else
                 {

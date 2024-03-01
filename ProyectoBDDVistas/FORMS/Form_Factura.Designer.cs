@@ -44,6 +44,12 @@
             label5 = new Label();
             registrarTabPage = new TabPage();
             panel2 = new Panel();
+            txtBTotalFac = new TextBox();
+            txtBIvaFac = new TextBox();
+            txtBSubtotalFac = new TextBox();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
             label9 = new Label();
             button3 = new Button();
             txtBnombApeClienteFacturaRegistrar = new TextBox();
@@ -87,14 +93,14 @@
             DGWFacturas.AllowUserToResizeRows = false;
             DGWFacturas.BackgroundColor = Color.White;
             DGWFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGWFacturas.Location = new Point(114, 473);
+            DGWFacturas.Location = new Point(114, 577);
             DGWFacturas.Margin = new Padding(3, 4, 3, 4);
             DGWFacturas.Name = "DGWFacturas";
             DGWFacturas.ReadOnly = true;
             DGWFacturas.RowHeadersVisible = false;
             DGWFacturas.RowHeadersWidth = 51;
             DGWFacturas.RowTemplate.Height = 24;
-            DGWFacturas.Size = new Size(1454, 367);
+            DGWFacturas.Size = new Size(1454, 263);
             DGWFacturas.TabIndex = 44;
             DGWFacturas.DataBindingComplete += DGWFacturas_DataBindingComplete;
             // 
@@ -115,6 +121,7 @@
             dGWReparacionFactura.AllowUserToResizeRows = false;
             dGWReparacionFactura.BackgroundColor = Color.White;
             dGWReparacionFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dGWReparacionFactura.Enabled = false;
             dGWReparacionFactura.Location = new Point(693, 86);
             dGWReparacionFactura.Margin = new Padding(3, 4, 3, 4);
             dGWReparacionFactura.Name = "dGWReparacionFactura";
@@ -133,7 +140,7 @@
             actualizarTabPage.Location = new Point(4, 29);
             actualizarTabPage.Name = "actualizarTabPage";
             actualizarTabPage.Padding = new Padding(3);
-            actualizarTabPage.Size = new Size(645, 370);
+            actualizarTabPage.Size = new Size(645, 458);
             actualizarTabPage.TabIndex = 2;
             actualizarTabPage.Text = "Actualizar";
             // 
@@ -230,13 +237,19 @@
             registrarTabPage.Location = new Point(4, 29);
             registrarTabPage.Name = "registrarTabPage";
             registrarTabPage.Padding = new Padding(3);
-            registrarTabPage.Size = new Size(645, 370);
+            registrarTabPage.Size = new Size(645, 458);
             registrarTabPage.TabIndex = 0;
             registrarTabPage.Text = "Registrar";
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(txtBTotalFac);
+            panel2.Controls.Add(txtBIvaFac);
+            panel2.Controls.Add(txtBSubtotalFac);
+            panel2.Controls.Add(label12);
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(label10);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(txtBnombApeClienteFacturaRegistrar);
@@ -252,8 +265,62 @@
             panel2.Controls.Add(label38);
             panel2.Location = new Point(6, 14);
             panel2.Name = "panel2";
-            panel2.Size = new Size(633, 350);
+            panel2.Size = new Size(633, 438);
             panel2.TabIndex = 117;
+            // 
+            // txtBTotalFac
+            // 
+            txtBTotalFac.Location = new Point(231, 314);
+            txtBTotalFac.Margin = new Padding(3, 4, 3, 4);
+            txtBTotalFac.Name = "txtBTotalFac";
+            txtBTotalFac.ReadOnly = true;
+            txtBTotalFac.Size = new Size(77, 27);
+            txtBTotalFac.TabIndex = 131;
+            // 
+            // txtBIvaFac
+            // 
+            txtBIvaFac.Location = new Point(231, 279);
+            txtBIvaFac.Margin = new Padding(3, 4, 3, 4);
+            txtBIvaFac.Name = "txtBIvaFac";
+            txtBIvaFac.ReadOnly = true;
+            txtBIvaFac.Size = new Size(77, 27);
+            txtBIvaFac.TabIndex = 130;
+            // 
+            // txtBSubtotalFac
+            // 
+            txtBSubtotalFac.Location = new Point(231, 244);
+            txtBSubtotalFac.Margin = new Padding(3, 4, 3, 4);
+            txtBSubtotalFac.Name = "txtBSubtotalFac";
+            txtBSubtotalFac.ReadOnly = true;
+            txtBSubtotalFac.Size = new Size(77, 27);
+            txtBSubtotalFac.TabIndex = 129;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(180, 317);
+            label12.Name = "label12";
+            label12.Size = new Size(45, 20);
+            label12.TabIndex = 128;
+            label12.Text = "Total:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(191, 282);
+            label11.Name = "label11";
+            label11.Size = new Size(34, 20);
+            label11.TabIndex = 127;
+            label11.Text = "IVA:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(157, 247);
+            label10.Name = "label10";
+            label10.Size = new Size(68, 20);
+            label10.TabIndex = 126;
+            label10.Text = "Subtotal:";
             // 
             // label9
             // 
@@ -330,7 +397,7 @@
             // 
             // bttAgregarRegistrar
             // 
-            bttAgregarRegistrar.Location = new Point(231, 259);
+            bttAgregarRegistrar.Location = new Point(409, 366);
             bttAgregarRegistrar.Name = "bttAgregarRegistrar";
             bttAgregarRegistrar.Size = new Size(147, 47);
             bttAgregarRegistrar.TabIndex = 117;
@@ -378,13 +445,13 @@
             clientesTabControl.Location = new Point(30, 43);
             clientesTabControl.Name = "clientesTabControl";
             clientesTabControl.SelectedIndex = 0;
-            clientesTabControl.Size = new Size(653, 403);
+            clientesTabControl.Size = new Size(653, 491);
             clientesTabControl.TabIndex = 118;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 449);
+            label6.Location = new Point(0, 537);
             label6.Name = "label6";
             label6.Size = new Size(378, 20);
             label6.TabIndex = 119;
@@ -451,5 +518,11 @@
         private Button button3;
         private TextBox txtBnombApeClienteFacturaRegistrar;
         private Label label8;
+        private Label label10;
+        private TextBox txtBTotalFac;
+        private TextBox txtBIvaFac;
+        private TextBox txtBSubtotalFac;
+        private Label label12;
+        private Label label11;
     }
 }
