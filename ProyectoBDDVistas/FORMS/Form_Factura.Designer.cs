@@ -193,6 +193,7 @@
             button2.TabIndex = 120;
             button2.Text = "Eliminar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // txtBtotalActEli
             // 

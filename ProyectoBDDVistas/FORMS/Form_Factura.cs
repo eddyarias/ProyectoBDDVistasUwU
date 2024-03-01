@@ -152,5 +152,11 @@ namespace ProyectoBDDVistas.FORMS
                 msf.ActualizarFactura(Conexion, facturaAct);
             }
         }
+        public string idFacturaEliminar;
+        private void button2_Click(object sender, EventArgs e)
+        {
+            idFacturaEliminar = txtBidFacActEli.Text;
+            msf.EliminarFactura(Conexion, idFacturaEliminar);
+        }
     }
 }

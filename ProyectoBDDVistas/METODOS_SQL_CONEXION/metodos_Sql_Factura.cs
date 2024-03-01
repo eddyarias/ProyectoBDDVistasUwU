@@ -68,6 +68,9 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
+
+
+                MessageBox.Show("Factura insertada correctamente.");
             }
             catch (Exception ex)
             {
@@ -170,6 +173,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Factura actualizada correctamente.");
             }
             catch (Exception ex)
             {
@@ -188,21 +193,34 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
+                // Pregunta al usuario antes de eliminar
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar esta factura?", "Confirmación de eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    conexion.Open();
+                    if (conexion.State != ConnectionState.Open)
+                    {
+                        conexion.Open();
+                    }
+
+                    // Crear el comando SQL para la eliminación de datos
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_FACTURA = @IdFactura", conexion);
+
+                    // Asignar valor al parámetro utilizando el ID_FACTURA
+                    cmd.Parameters.AddWithValue("@IdFactura", idFactura);
+
+                    // Ejecutar la consulta
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Factura eliminada correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró ninguna factura con el ID especificado.");
+                    }
                 }
-
-                // Crear el comando SQL para la eliminación de datos
-                SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_FACTURA = @IdFactura", conexion);
-
-                // Asignar valor al parámetro utilizando el ID_FACTURA
-                cmd.Parameters.AddWithValue("@IdFactura", idFactura);
-
-                // Ejecutar la consulta
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Factura eliminada correctamente.");
             }
             catch (Exception ex)
             {
