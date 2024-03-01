@@ -23,6 +23,7 @@ namespace ProyectoBDDVistas.FORMS
             InitializeComponent();
             Conexion = conexion;
             msf = new metodos_Sql_Factura();
+            msr = new metodos_Sql_Reparacion();
             msf.DesplegarDatosFacturas(conexion, DGWFacturas);
             msr.DesplegarDatosReparacion(Conexion, dGWReparacionFactura);
         }
@@ -54,13 +55,27 @@ namespace ProyectoBDDVistas.FORMS
 
         private void bttAgregarRegistrar_Click(object sender, EventArgs e)
         {
-           // Factura factura = new Factura(txtidFacRegistrar.Text, txtBmatVehFacReg.Text,txtBidRepFacReg,msr.idTaller,dTPFecFacRegistrar.Value,Decimal.Parse(txt));
+            // Factura factura = new Factura(txtidFacRegistrar.Text, txtBmatVehFacReg.Text,txtBidRepFacReg,msr.idTaller,dTPFecFacRegistrar.Value,Decimal.Parse(txt));
 
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+        public string nombreCompleto;
+        public string nombreRegistrar;
+        public string apellidoRegistrar;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            nombreCompleto = txtBnombApeClienteFacturaRegistrar.Text;
+            string[] nombreYApellido = nombreCompleto.Split(' ');
+            if (nombreYApellido.Length >= 2)
+            {
+                nombreRegistrar = nombreYApellido[0].PadRight(30);
+                apellidoRegistrar = nombreYApellido[1].PadRight(30);
+            }
+                msr.ObtenerReparacionesPorClienteYMostrarEnGridView(Conexion, nombreRegistrar, apellidoRegistrar, dGWReparacionFactura);
         }
     }
 }

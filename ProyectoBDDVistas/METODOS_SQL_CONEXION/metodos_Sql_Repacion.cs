@@ -263,5 +263,55 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
             }
         }
+
+        public void ObtenerReparacionesPorClienteYMostrarEnGridView(SqlConnection conexion, string nombre, string apellido, DataGridView dataGridView)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para obtener la información de reparación por cliente
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} R " +
+                                                $"JOIN {tablaVehiculo} V ON R.NUMMATRICULA_VEHICULO = V.NUMMATRICULA_VEHICULO " +
+                                                $"JOIN {talaCliente} C ON V.NOMBRE_CLIENTE = C.NOMBRE_CLIENTE AND V.APELLIDO_CLIENTE = C.APELLIDO_CLIENTE AND V.ID_TALLER = C.ID_TALLER " +
+                                                $"WHERE C.NOMBRE_CLIENTE = @Nombre AND C.APELLIDO_CLIENTE = @Apellido", conexion);
+
+                // Asignar valores a los parámetros
+                cmd.Parameters.AddWithValue("@Nombre", nombre);
+                cmd.Parameters.AddWithValue("@Apellido", apellido);
+
+                // Crear un DataTable para contener los datos
+                DataTable dataTable = new DataTable();
+                dataTable.Load(cmd.ExecuteReader());
+
+                // Check if there are no rows in the DataTable
+                if (dataTable.Rows.Count == 0)
+                {
+                    MessageBox.Show($"No hay reparaciones asociadas al cliente {nombre} {apellido}");
+                }
+                else
+                {
+                    // Asignar el DataTable como DataSource del DataGridView
+                    dataGridView.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener información de reparación por cliente: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+
+
     }
 }
