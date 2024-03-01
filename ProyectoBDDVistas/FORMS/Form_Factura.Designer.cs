@@ -35,13 +35,25 @@
             actualizarTabPage = new TabPage();
             panel1 = new Panel();
             button2 = new Button();
-            txtBidRepFacActEli = new TextBox();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            txtBSubFacActEli = new TextBox();
             label3 = new Label();
             button1 = new Button();
-            dTPFecFacActEli = new DateTimePicker();
             label4 = new Label();
-            txtBidFacActEli = new TextBox();
             label5 = new Label();
+            label13 = new Label();
+            button4 = new Button();
+            txtBnomClienteFacActEli = new TextBox();
+            label14 = new Label();
+            txtBmatVehFacActEli = new TextBox();
+            label15 = new Label();
+            txtBidRepFacActEli = new TextBox();
+            label16 = new Label();
+            dTPFecEmFechaFacActEli = new DateTimePicker();
+            label17 = new Label();
+            txtBidFacActEli = new TextBox();
+            label18 = new Label();
             registrarTabPage = new TabPage();
             panel2 = new Panel();
             txtBTotalFac = new TextBox();
@@ -63,7 +75,7 @@
             label40 = new Label();
             txtidFacRegistrar = new TextBox();
             label38 = new Label();
-            clientesTabControl = new TabControl();
+            facturaTabControl = new TabControl();
             label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)DGWFacturas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dGWReparacionFactura).BeginInit();
@@ -71,7 +83,7 @@
             panel1.SuspendLayout();
             registrarTabPage.SuspendLayout();
             panel2.SuspendLayout();
-            clientesTabControl.SuspendLayout();
+            facturaTabControl.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -102,6 +114,7 @@
             DGWFacturas.RowTemplate.Height = 24;
             DGWFacturas.Size = new Size(1454, 263);
             DGWFacturas.TabIndex = 44;
+            DGWFacturas.CellClick += DGWFacturas_CellClick;
             DGWFacturas.DataBindingComplete += DGWFacturas_DataBindingComplete;
             // 
             // label29
@@ -142,93 +155,212 @@
             actualizarTabPage.Padding = new Padding(3);
             actualizarTabPage.Size = new Size(645, 458);
             actualizarTabPage.TabIndex = 2;
-            actualizarTabPage.Text = "Actualizar";
+            actualizarTabPage.Text = "Actualizar / Eliminar";
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(txtBidRepFacActEli);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(txtBSubFacActEli);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(dTPFecFacActEli);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(txtBidFacActEli);
             panel1.Controls.Add(label5);
-            panel1.Location = new Point(18, 14);
+            panel1.Controls.Add(label13);
+            panel1.Controls.Add(button4);
+            panel1.Controls.Add(txtBnomClienteFacActEli);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(txtBmatVehFacActEli);
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(txtBidRepFacActEli);
+            panel1.Controls.Add(label16);
+            panel1.Controls.Add(dTPFecEmFechaFacActEli);
+            panel1.Controls.Add(label17);
+            panel1.Controls.Add(txtBidFacActEli);
+            panel1.Controls.Add(label18);
+            panel1.Location = new Point(6, 14);
             panel1.Name = "panel1";
-            panel1.Size = new Size(608, 193);
+            panel1.Size = new Size(633, 438);
             panel1.TabIndex = 118;
             // 
             // button2
             // 
-            button2.Location = new Point(368, 138);
+            button2.Location = new Point(465, 377);
             button2.Name = "button2";
             button2.Size = new Size(147, 43);
             button2.TabIndex = 120;
             button2.Text = "Eliminar";
             button2.UseVisualStyleBackColor = true;
             // 
-            // txtBidRepFacActEli
+            // textBox1
             // 
-            txtBidRepFacActEli.Location = new Point(225, 84);
-            txtBidRepFacActEli.Margin = new Padding(3, 4, 3, 4);
-            txtBidRepFacActEli.Name = "txtBidRepFacActEli";
-            txtBidRepFacActEli.ReadOnly = true;
-            txtBidRepFacActEli.Size = new Size(213, 27);
-            txtBidRepFacActEli.TabIndex = 119;
+            textBox1.Location = new Point(231, 314);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(77, 27);
+            textBox1.TabIndex = 131;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(231, 279);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(77, 27);
+            textBox2.TabIndex = 130;
+            // 
+            // txtBSubFacActEli
+            // 
+            txtBSubFacActEli.Location = new Point(231, 244);
+            txtBSubFacActEli.Margin = new Padding(3, 4, 3, 4);
+            txtBSubFacActEli.Name = "txtBSubFacActEli";
+            txtBSubFacActEli.ReadOnly = true;
+            txtBSubFacActEli.Size = new Size(77, 27);
+            txtBSubFacActEli.TabIndex = 129;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(105, 91);
+            label3.Location = new Point(180, 317);
             label3.Name = "label3";
-            label3.Size = new Size(100, 20);
-            label3.TabIndex = 118;
-            label3.Text = "Id reparacion:";
+            label3.Size = new Size(45, 20);
+            label3.TabIndex = 128;
+            label3.Text = "Total:";
             // 
             // button1
             // 
-            button1.Location = new Point(182, 138);
+            button1.Location = new Point(39, 377);
             button1.Name = "button1";
             button1.Size = new Size(147, 43);
             button1.TabIndex = 117;
             button1.Text = "Actualizar";
             button1.UseVisualStyleBackColor = true;
             // 
-            // dTPFecFacActEli
-            // 
-            dTPFecFacActEli.Location = new Point(225, 50);
-            dTPFecFacActEli.Name = "dTPFecFacActEli";
-            dTPFecFacActEli.Size = new Size(290, 27);
-            dTPFecFacActEli.TabIndex = 116;
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(144, 23);
+            label4.Location = new Point(191, 282);
             label4.Name = "label4";
-            label4.Size = new Size(75, 20);
-            label4.TabIndex = 115;
-            label4.Text = "Id factura:";
+            label4.Size = new Size(34, 20);
+            label4.TabIndex = 127;
+            label4.Text = "IVA:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(157, 247);
+            label5.Name = "label5";
+            label5.Size = new Size(68, 20);
+            label5.TabIndex = 126;
+            label5.Text = "Subtotal:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(54, 32);
+            label13.Name = "label13";
+            label13.Size = new Size(293, 20);
+            label13.TabIndex = 125;
+            label13.Text = "Para crear la factura debe buscar un cliente";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(450, 67);
+            button4.Name = "button4";
+            button4.Size = new Size(106, 28);
+            button4.TabIndex = 124;
+            button4.Text = "Buscar";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // txtBnomClienteFacActEli
+            // 
+            txtBnomClienteFacActEli.Location = new Point(231, 67);
+            txtBnomClienteFacActEli.Margin = new Padding(3, 4, 3, 4);
+            txtBnomClienteFacActEli.Name = "txtBnomClienteFacActEli";
+            txtBnomClienteFacActEli.Size = new Size(213, 27);
+            txtBnomClienteFacActEli.TabIndex = 123;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(85, 71);
+            label14.Name = "label14";
+            label14.Size = new Size(140, 20);
+            label14.TabIndex = 122;
+            label14.Text = "Nombre del cliente:";
+            // 
+            // txtBmatVehFacActEli
+            // 
+            txtBmatVehFacActEli.Location = new Point(231, 174);
+            txtBmatVehFacActEli.Margin = new Padding(3, 4, 3, 4);
+            txtBmatVehFacActEli.Name = "txtBmatVehFacActEli";
+            txtBmatVehFacActEli.ReadOnly = true;
+            txtBmatVehFacActEli.Size = new Size(213, 27);
+            txtBmatVehFacActEli.TabIndex = 121;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(111, 209);
+            label15.Name = "label15";
+            label15.Size = new Size(114, 20);
+            label15.TabIndex = 120;
+            label15.Text = "Id reparaciones:";
+            // 
+            // txtBidRepFacActEli
+            // 
+            txtBidRepFacActEli.Location = new Point(231, 209);
+            txtBidRepFacActEli.Margin = new Padding(3, 4, 3, 4);
+            txtBidRepFacActEli.Name = "txtBidRepFacActEli";
+            txtBidRepFacActEli.ReadOnly = true;
+            txtBidRepFacActEli.Size = new Size(213, 27);
+            txtBidRepFacActEli.TabIndex = 119;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(92, 174);
+            label16.Name = "label16";
+            label16.Size = new Size(133, 20);
+            label16.TabIndex = 118;
+            label16.Text = "Matricula vehiculo:";
+            // 
+            // dTPFecEmFechaFacActEli
+            // 
+            dTPFecEmFechaFacActEli.Location = new Point(231, 136);
+            dTPFecEmFechaFacActEli.Name = "dTPFecEmFechaFacActEli";
+            dTPFecEmFechaFacActEli.Size = new Size(290, 27);
+            dTPFecEmFechaFacActEli.TabIndex = 116;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(150, 109);
+            label17.Name = "label17";
+            label17.Size = new Size(75, 20);
+            label17.TabIndex = 115;
+            label17.Text = "Id factura:";
             // 
             // txtBidFacActEli
             // 
-            txtBidFacActEli.Location = new Point(225, 16);
+            txtBidFacActEli.Location = new Point(231, 102);
             txtBidFacActEli.Margin = new Padding(3, 4, 3, 4);
             txtBidFacActEli.Name = "txtBidFacActEli";
             txtBidFacActEli.ReadOnly = true;
             txtBidFacActEli.Size = new Size(213, 27);
             txtBidFacActEli.TabIndex = 114;
             // 
-            // label5
+            // label18
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(113, 55);
-            label5.Name = "label5";
-            label5.Size = new Size(106, 20);
-            label5.TabIndex = 113;
-            label5.Text = "Fecha emisión:";
+            label18.AutoSize = true;
+            label18.Location = new Point(119, 141);
+            label18.Name = "label18";
+            label18.Size = new Size(106, 20);
+            label18.TabIndex = 113;
+            label18.Text = "Fecha emisión:";
             // 
             // registrarTabPage
             // 
@@ -438,15 +570,15 @@
             label38.TabIndex = 113;
             label38.Text = "Fecha emisión:";
             // 
-            // clientesTabControl
+            // facturaTabControl
             // 
-            clientesTabControl.Controls.Add(registrarTabPage);
-            clientesTabControl.Controls.Add(actualizarTabPage);
-            clientesTabControl.Location = new Point(30, 43);
-            clientesTabControl.Name = "clientesTabControl";
-            clientesTabControl.SelectedIndex = 0;
-            clientesTabControl.Size = new Size(653, 491);
-            clientesTabControl.TabIndex = 118;
+            facturaTabControl.Controls.Add(registrarTabPage);
+            facturaTabControl.Controls.Add(actualizarTabPage);
+            facturaTabControl.Location = new Point(30, 43);
+            facturaTabControl.Name = "facturaTabControl";
+            facturaTabControl.SelectedIndex = 0;
+            facturaTabControl.Size = new Size(653, 491);
+            facturaTabControl.TabIndex = 118;
             // 
             // label6
             // 
@@ -463,7 +595,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1634, 853);
             Controls.Add(label6);
-            Controls.Add(clientesTabControl);
+            Controls.Add(facturaTabControl);
             Controls.Add(dGWReparacionFactura);
             Controls.Add(label29);
             Controls.Add(DGWFacturas);
@@ -479,7 +611,7 @@
             registrarTabPage.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            clientesTabControl.ResumeLayout(false);
+            facturaTabControl.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -492,15 +624,8 @@
         private Label label29;
         private DataGridView dGWReparacionFactura;
         private TabPage actualizarTabPage;
-        private Panel panel1;
         private Button button2;
-        private TextBox txtBidRepFacActEli;
-        private Label label3;
         private Button button1;
-        private DateTimePicker dTPFecFacActEli;
-        private Label label4;
-        private TextBox txtBidFacActEli;
-        private Label label5;
         private TabPage registrarTabPage;
         private Panel panel2;
         private TextBox txtBidRepFacReg;
@@ -510,7 +635,7 @@
         private Label label40;
         private TextBox txtidFacRegistrar;
         private Label label38;
-        private TabControl clientesTabControl;
+        private TabControl facturaTabControl;
         private Label label6;
         private TextBox txtBmatVehFacReg;
         private Label label7;
@@ -524,5 +649,24 @@
         private TextBox txtBSubtotalFac;
         private Label label12;
         private Label label11;
+        private Panel panel1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox txtBSubFacActEli;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label13;
+        private Button button4;
+        private TextBox txtBnomClienteFacActEli;
+        private Label label14;
+        private TextBox txtBmatVehFacActEli;
+        private Label label15;
+        private TextBox txtBidRepFacActEli;
+        private Label label16;
+        private DateTimePicker dTPFecEmFechaFacActEli;
+        private Label label17;
+        private TextBox txtBidFacActEli;
+        private Label label18;
     }
 }

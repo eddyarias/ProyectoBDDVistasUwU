@@ -19,6 +19,7 @@ namespace ProyectoBDDVistas.FORMS
         public SqlConnection Conexion;
         public metodos_Sql_Factura msf;
         public metodos_Sql_Reparacion msr;
+        public List<TextBox> camposRellenarActualizarEliminar;
         public Form_Factura(SqlConnection conexion)
         {
             InitializeComponent();
@@ -27,6 +28,14 @@ namespace ProyectoBDDVistas.FORMS
             msr = new metodos_Sql_Reparacion();
             msf.DesplegarDatosFacturas(conexion, DGWFacturas);
             //msr.DesplegarDatosReparacion(Conexion, dGWReparacionFactura);
+            camposRellenarActualizarEliminar = new List<TextBox>();
+
+            camposRellenarActualizarEliminar.Add(txtBnomClienteFacActEli);
+            camposRellenarActualizarEliminar.Add(txtBidFacActEli);
+            camposRellenarActualizarEliminar.Add(txtBmatVehFacActEli);
+            camposRellenarActualizarEliminar.Add(txtBidRepFacActEli);
+            camposRellenarActualizarEliminar.Add(txtBSubFacActEli);
+
         }
 
         private void DGWFacturas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -54,19 +63,19 @@ namespace ProyectoBDDVistas.FORMS
             txtBidRepFacReg.Text = reparacion.IdReparacion;
             txtBmatVehFacReg.Text = reparacion.NumMatriculaVehiculo;
             //si son mas de 1 factura tocaria cambiar la logica de aqui hacia abajo
-            txtBSubtotalFac.Text = reparacion.PrecioReparacion+"";
+            txtBSubtotalFac.Text = reparacion.PrecioReparacion + "";
             Decimal iva = reparacion.PrecioReparacion * 0.12m;
-            txtBIvaFac.Text = iva+"";
+            txtBIvaFac.Text = iva + "";
             Decimal total = reparacion.PrecioReparacion + iva;
-            txtBTotalFac.Text = total+ "";
+            txtBTotalFac.Text = total + "";
         }
 
         private void bttAgregarRegistrar_Click(object sender, EventArgs e)
         {
-            Factura factura = new Factura(txtidFacRegistrar.Text, 
-            txtBmatVehFacReg.Text,txtBidRepFacReg.Text,msr.idTaller,
-            dTPFecFacRegistrar.Value,Decimal.Parse(txtBSubtotalFac.Text),
-            Decimal.Parse(txtBIvaFac.Text), 
+            Factura factura = new Factura(txtidFacRegistrar.Text,
+            txtBmatVehFacReg.Text, txtBidRepFacReg.Text, msr.idTaller,
+            dTPFecFacRegistrar.Value, Decimal.Parse(txtBSubtotalFac.Text),
+            Decimal.Parse(txtBIvaFac.Text),
             Decimal.Parse(txtBTotalFac.Text));
 
             if (string.IsNullOrEmpty(txtidFacRegistrar.Text) ||
@@ -101,8 +110,24 @@ namespace ProyectoBDDVistas.FORMS
                 nombreRegistrar = nombreYApellido[0].PadRight(30);
                 apellidoRegistrar = nombreYApellido[1].PadRight(30);
             }
-                msr.ObtenerReparacionesPorClienteYMostrarEnGridView(Conexion, nombreRegistrar, apellidoRegistrar, dGWReparacionFactura);
-                dGWReparacionFactura.Enabled = true;
+            msr.ObtenerReparacionesPorClienteYMostrarEnGridView(Conexion, nombreRegistrar, apellidoRegistrar, dGWReparacionFactura);
+            dGWReparacionFactura.Enabled = true;
+        }
+        public string idFacturaSeleccionada;
+        private void DGWFacturas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                // Obtenemos el valor de la celda en la columna deseada
+                idFacturaSeleccionada = DGWFacturas.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+
+            msf.ObtenerInformacionFactura(Conexion, idFacturaSeleccionada,
+                camposRellenarActualizarEliminar, dTPFecEmFechaFacActEli,
+                dGWReparacionFactura);
+
+            facturaTabControl.SelectedIndex = 1;
+
         }
     }
 }

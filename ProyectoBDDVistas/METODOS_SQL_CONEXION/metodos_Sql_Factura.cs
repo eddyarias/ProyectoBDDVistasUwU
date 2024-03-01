@@ -12,6 +12,9 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     public class metodos_Sql_Factura
     {
         public string tabla = "VISTA_FACTURA";
+        public string tablaVehiculo = "VISTA_VEHICULO";
+        public string tablaCliente = "VISTA_CLIENTE";
+        public string tablaReparacion = "VISTA_REPARACION";
         //CAMBIE SEGUN SU ROL
         public string idTaller = "TALL002";
 
@@ -78,5 +81,63 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
             }
         }
+
+
+        public void ObtenerInformacionFactura(SqlConnection conexion, string idFactura, List<TextBox> textBoxes, DateTimePicker dateTimePicker, DataGridView dataGridView)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para obtener la información de la factura
+                SqlCommand cmd = new SqlCommand($"SELECT C.NOMBRE_CLIENTE, C.APELLIDO_CLIENTE, F.ID_FACTURA, F.NUMMATRICULA_VEHICULO, F.ID_REPARACION, R.PRECIO_REPARACION, F.FECHAEMISION_FACTURA " +
+                                                $"FROM {tabla} F " +
+                                                $"JOIN {tablaVehiculo} V ON F.NUMMATRICULA_VEHICULO = V.NUMMATRICULA_VEHICULO " +
+                                                $"JOIN {tablaCliente} C ON V.NOMBRE_CLIENTE = C.NOMBRE_CLIENTE AND V.APELLIDO_CLIENTE = C.APELLIDO_CLIENTE AND V.ID_TALLER = C.ID_TALLER " +
+                                                $"JOIN {tablaReparacion} R ON F.ID_REPARACION = R.ID_REPARACION " +
+                                                $"WHERE F.ID_FACTURA = @IdFactura", conexion);
+
+                // Asignar valor al parámetro
+                cmd.Parameters.AddWithValue("@IdFactura", idFactura);
+
+                // Ejecutar la consulta y leer los resultados
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        // Asignar la información a los controles
+                        textBoxes[0].Text = $"{reader["NOMBRE_CLIENTE"]} {reader["APELLIDO_CLIENTE"]}";
+                        textBoxes[1].Text = reader["ID_FACTURA"].ToString();
+                        dateTimePicker.Value = Convert.ToDateTime(reader["FECHAEMISION_FACTURA"]);
+                        textBoxes[2].Text = reader["NUMMATRICULA_VEHICULO"].ToString();
+                        textBoxes[3].Text = reader["ID_REPARACION"].ToString();
+                        textBoxes[4].Text = reader["PRECIO_REPARACION"].ToString();
+                    }
+                }
+
+                // Cargar detalles de la factura en el DataGridView (puedes ajustar esta parte según tu estructura)
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM DetallesFactura WHERE ID_FACTURA = @IdFactura", conexion);
+                sqlDataAdapter.SelectCommand.Parameters.AddWithValue("@IdFactura", idFactura);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                dataGridView.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener información de la factura: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+
     }
 }
