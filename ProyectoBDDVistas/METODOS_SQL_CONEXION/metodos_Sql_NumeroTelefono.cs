@@ -21,11 +21,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                // Asegúrate de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
                 // Crear un adaptador SQL para cargar los datos
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM " + tabla + "", conexion);
                 // Crear un DataTable para contener los datos
@@ -46,11 +41,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-
                 // Crear el comando SQL para la inserción de datos
                 SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_EMPLEADO, NUMEROTELEFONO, ID_TALLER) " +
                                                 "VALUES (@IdEmpleado, @NumeroTelefono, @IdTaller)", conexion);
@@ -102,10 +92,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Antes de eliminar, mostrar un mensaje de confirmación
                 DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar este número de teléfono?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -135,10 +121,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para obtener la información del empleado y su número de teléfono
                 SqlCommand cmd = new SqlCommand($"SELECT E.ID_EMPLEADO, E.NOMBRE_EMPLEADO, E.APELLIDO_EMPLEADO, N.NUMEROTELEFONO " +
@@ -165,13 +147,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al obtener información del empleado: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 

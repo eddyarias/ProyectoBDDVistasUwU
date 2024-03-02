@@ -40,13 +40,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 // Manejar cualquier excepción aquí
                 MessageBox.Show("Error al cargar datos: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
         // Método para insertar una nueva reparación
@@ -83,10 +76,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para obtener la información de reparación
                 SqlCommand cmd = new SqlCommand($"SELECT C.NUMCEDULA_CLIENTE, C.NOMBRE_CLIENTE, C.APELLIDO_CLIENTE, C.DIRECCION_CLIENTE, " +
@@ -133,10 +122,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para la actualización de datos
                 SqlCommand cmd = new SqlCommand($"UPDATE {tabla} SET " +
@@ -166,11 +151,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-
                 // Crear el comando SQL para la eliminación de datos
                 SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_REPARACION = @IdReparacion", conexion);
 
@@ -199,10 +179,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para obtener la información de reparación
                 SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} WHERE ID_REPARACION = @IdReparacion", conexion);
@@ -243,10 +219,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para obtener la información de reparación por cliente
                 SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} R " +

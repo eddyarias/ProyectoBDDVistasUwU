@@ -19,11 +19,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                // Asegúrate de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
                 // Crear un adaptador SQL para cargar los datos
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM VISTA_VEHICULO", conexion);
                 // Crear un DataTable para contener los datos
@@ -45,12 +40,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                // Asegurarse de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-
                 // Crear un comando SQL con parámetros para el nombre y apellido
                 SqlCommand sqlCommand = new SqlCommand($"SELECT * FROM {tabla} WHERE NOMBRE_CLIENTE = @nombreCliente AND APELLIDO_CLIENTE = @apellidoCliente", conexion);
                 sqlCommand.Parameters.AddWithValue("@nombreCliente", nombreCliente);
@@ -80,11 +69,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
             try
             {
-                // Asegurarse de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear un comando SQL con parámetros para el número de matrícula
                 SqlCommand sqlCommand = new SqlCommand($"SELECT * FROM {tabla} WHERE NUMMATRICULA_VEHICULO = @numMatriculaVehiculo", conexion);
@@ -119,11 +103,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-
                 // Crear el comando SQL para la inserción de datos
                 SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (NUMMATRICULA_VEHICULO, ID_TALLER, NOMBRE_CLIENTE, APELLIDO_CLIENTE, FECHACOMPRA_VEHICULO) VALUES (@NumMatriculaVehiculo, @IdTaller, @NombreCliente, @ApellidoCliente, @FechaCompraVehiculo)", conexion);
 
@@ -136,20 +115,71 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Vehículo registrado correctamente");
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al insertar datos: " + ex.Message);
             }
-            finally
+        }
+
+        public void ActualizarDatosVehiculo(SqlConnection conexion, Vehiculo vehiculo)
+        {
+            try
             {
-                if (conexion.State == ConnectionState.Open)
+                // Crear el comando SQL para la actualización de datos
+                SqlCommand cmd = new SqlCommand($"UPDATE {tabla} SET FECHACOMPRA_VEHICULO = @FechaCompraVehiculo WHERE NUMMATRICULA_VEHICULO = @NumMatriculaVehiculo", conexion);
+
+                // Asignar valores a los parámetros utilizando el objeto Vehiculo
+                cmd.Parameters.AddWithValue("@NumMatriculaVehiculo", vehiculo.NumMatriculaVehiculo);
+                cmd.Parameters.AddWithValue("@FechaCompraVehiculo", vehiculo.FechaCompraVehiculo);
+
+                // Ejecutar la consulta
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Mostrar mensaje de confirmación después de la actualización
+                if (rowsAffected > 0)
                 {
-                    conexion.Close();
+                    MessageBox.Show("Datos del vehículo actualizados con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar datos: " + ex.Message);
             }
         }
 
+        public void EliminarVehiculoPorNumMatricula(SqlConnection conexion, string numMatriculaVehiculo)
+        {
+            try
+            {
+                // Crear el comando SQL para la eliminación de datos
+                SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE NUMMATRICULA_VEHICULO = @NumMatriculaVehiculo", conexion);
+
+                // Asignar valor al parámetro
+                cmd.Parameters.AddWithValue("@NumMatriculaVehiculo", numMatriculaVehiculo);
+
+                // Ejecutar la consulta
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                // Mostrar mensaje de confirmación después de la eliminación
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Vehículo eliminado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el vehículo para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar datos del vehículo: " + ex.Message);
+            }
+        }
 
 
     }
