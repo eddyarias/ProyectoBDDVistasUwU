@@ -43,10 +43,10 @@ namespace ProyectoBDDVistas
             //Cuando ustedes hagan descomente la linea de conexion suya y comente la del resto
 
             //Alex TallerReparacionQ
-            Conexion conexion = new Conexion("LAPTOP-MQ2NT5FG\\MSSQLSERVERI", "TallerReparacionQ",usuario,contraseña);
+            //Conexion conexion = new Conexion("LAPTOP-MQ2NT5FG\\MSSQLSERVERI", "TallerReparacionQ",usuario,contraseña);
 
             //Milton TallerReparacionG
-  //          Conexion conexion = new Conexion("LAPTOP-VF0SV152", "TallerReparacionG",usuario,contraseña);
+            Conexion conexion = new Conexion("LAPTOP-VF0SV152", "TallerReparacionG",usuario,contraseña);
 
             //Eddy 
             //Conexion conexion = new Conexion("DESKTOP-85782JV","TallerReparacionG",usuario,contraseña);
