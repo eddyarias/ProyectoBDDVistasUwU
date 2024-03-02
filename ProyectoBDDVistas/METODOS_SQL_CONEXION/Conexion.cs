@@ -37,8 +37,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                     if (mostrarMensajeExito)
                     {
-                       /*Descomentar cuando el proyecto este funcionando al 100% */
-                      //  MessageBox.Show("Conexión a la base de datos establecida con éxito.", "Conexión Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Conexión a la base de datos establecida con éxito.", "Conexión Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     bandera = true;
                 }

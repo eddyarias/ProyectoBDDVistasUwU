@@ -12,15 +12,17 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     public class metodos_Sql_Vehiculo
     {
         public string tabla = "VISTA_VEHICULO";
+        public string tablaReplicada = "NUMMATRICULA_VEHICULO";
         //CAMBIE SEGUN SU ROL
         public string idTaller = "TALL002";
+
 
         public void DesplegarDatosVehiculos(SqlConnection conexion, DataGridView dataGridView)
         {
             try
             {
                 // Crear un adaptador SQL para cargar los datos
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM VISTA_VEHICULO", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = {idTaller}", conexion);
                 // Crear un DataTable para contener los datos
                 DataTable dataTable = new DataTable();
                 // Llenar el DataTable con los datos del adaptador
@@ -186,7 +188,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             try
             {
                 // Crear un adaptador SQL para cargar los datos
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT NUMMATRICULA_VEHICULO FROM VISTA_VEHICULO", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT {tablaReplicada} FROM {tabla}", conexion);
                 // Crear un DataTable para contener los datos
                 DataTable dataTable = new DataTable();
                 // Llenar el DataTable con los datos del adaptador
