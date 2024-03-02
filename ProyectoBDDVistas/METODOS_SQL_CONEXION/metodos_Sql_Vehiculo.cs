@@ -111,14 +111,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 // Manejar cualquier excepción
                 MessageBox.Show("Error al obtener vehículo: " + ex.Message);
             }
-            finally
-            {
-                // Cerrar la conexión
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
 
             return vehiculo;
         }

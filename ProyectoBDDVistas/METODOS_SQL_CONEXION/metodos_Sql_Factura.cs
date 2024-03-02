@@ -76,13 +76,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al insertar datos en la factura: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
 
@@ -140,13 +133,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al obtener información de la factura: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
         public void ActualizarFactura(SqlConnection conexion, Factura factura)
@@ -193,13 +179,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar datos de la factura: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 

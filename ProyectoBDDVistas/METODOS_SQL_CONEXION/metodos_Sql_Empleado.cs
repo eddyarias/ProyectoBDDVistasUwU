@@ -101,13 +101,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al actualizar datos: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
+
         }
 
         /// <summary>
@@ -165,13 +159,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al eliminar datos: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
+
         }
     
         public Empleado BuscarEmpleadoPorId(SqlConnection conexion, string idEmpleado)
@@ -210,13 +198,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al buscar datos del empleado: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
+
 
             return empleado;
         }
