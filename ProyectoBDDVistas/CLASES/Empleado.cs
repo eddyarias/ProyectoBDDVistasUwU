@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,9 +15,11 @@ namespace ProyectoBDDVistas.CLASES
         public string NombreEmpleado { get; set; }
         public string ApellidoEmpleado { get; set; }
         public decimal SalarioEmpleado { get; set; }
+        public string NumeroTelefono { get; set; }
+        public string TelefonoAdicional {  get; set; }      
         public DateTime FechaInicioContratoEmpleado { get; set; }
 
-        public Empleado(string idEmpleado, string idTaller, string numCedulaEmpleado, string nombreEmpleado, string apellidoEmpleado, decimal salarioEmpleado, DateTime fechaInicioContratoEmpleado)
+        public Empleado(string idEmpleado, string idTaller, string numCedulaEmpleado, string nombreEmpleado, string apellidoEmpleado, decimal salarioEmpleado,  DateTime fechaInicioContratoEmpleado)
         {
             IdEmpleado = idEmpleado;
             IdTaller = idTaller;
@@ -26,5 +29,6 @@ namespace ProyectoBDDVistas.CLASES
             SalarioEmpleado = salarioEmpleado;
             FechaInicioContratoEmpleado = fechaInicioContratoEmpleado;
         }
+
     }
 }

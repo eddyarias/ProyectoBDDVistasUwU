@@ -32,14 +32,14 @@ namespace ProyectoBDDVistas.FORMS
 
         private void DGWEmpleado_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            DGWEmpleado.AutoResizeColumns();
-            DGWEmpleado.AutoResizeRows();
+            /*  DGWEmpleado.AutoResizeColumns();
+              DGWEmpleado.AutoResizeRows();
 
-            // Ajustar el tamaño del DataGridView al de sus columnas y filas
-            int width = DGWEmpleado.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + DGWEmpleado.RowHeadersWidth + 3;
-            int height = DGWEmpleado.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + DGWEmpleado.ColumnHeadersHeight + 3;
+              // Ajustar el tamaño del DataGridView al de sus columnas y filas
+              int width = DGWEmpleado.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + DGWEmpleado.RowHeadersWidth + 3;
+              int height = DGWEmpleado.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + DGWEmpleado.ColumnHeadersHeight + 3;
 
-            DGWEmpleado.ClientSize = new Size(width, height);
+              DGWEmpleado.ClientSize = new Size(width, height);*/
         }
 
         private void BAgregar_Click(object sender, EventArgs e)
@@ -64,6 +64,7 @@ namespace ProyectoBDDVistas.FORMS
             txtBapeEmpleadoAct.Text, decimal.Parse(txtBsalEmpleadoAct.Text),
              DateTime.Parse(txtBfecEmpleadoAct.Text));
 
+
             mse.ActualizarDatosEmpleado(Conexion, empleadoActualizar);
             //actualizar la tabla 
             mse.DesplegarDatosEmpleados(Conexion, DGWEmpleado);
@@ -81,6 +82,7 @@ namespace ProyectoBDDVistas.FORMS
             EmpleadoSeccionadoActual = mse.BuscarEmpleadoPorId(Conexion, idEmpleadoActEli);
 
             desplegarEmpleadoActualizarEliminar();
+            mse.DesplegarDatosEmpleados(Conexion,DGWEmpleado);
         }
 
         private void desplegarEmpleadoActualizarEliminar()
@@ -102,12 +104,43 @@ namespace ProyectoBDDVistas.FORMS
                 txtBfecEmpleadoEli.Text = EmpleadoSeccionadoActual.FechaInicioContratoEmpleado + "".Trim();
             }
         }
-
+        //eliminar
         private void button2_Click(object sender, EventArgs e)
         {
             mse.EliminarDatosEmpleado(Conexion, txtBidEmpleadoEli.Text.Trim());
             //actualizar la tabla 
             mse.DesplegarDatosEmpleados(Conexion, DGWEmpleado);
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_Empleado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelEmpleado_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtBidEmpleadoAct_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DGWEmpleado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+
         }
     }
 }

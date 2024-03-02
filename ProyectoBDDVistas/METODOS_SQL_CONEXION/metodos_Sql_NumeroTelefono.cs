@@ -12,7 +12,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     {
         public string tabla = "VISTA_NUMEROTELEFONO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL002";
+        public string idTaller = "TALL001";
 
         public void DesplegarDatosNumeroTelefono(SqlConnection conexion, DataGridView dataGridView)
         {
