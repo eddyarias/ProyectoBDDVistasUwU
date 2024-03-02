@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            button2 = new Button();
+            button1 = new Button();
+            bttNumeroTelefono = new Button();
             bttSalir = new Button();
             bttEmpleadoMenu = new Button();
             bttFacturacionMenu = new Button();
@@ -37,13 +40,14 @@
             bttClienteMenu = new Button();
             label2 = new Label();
             label1 = new Label();
-            bttNumeroTelefono = new Button();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(26, 32, 40);
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(bttNumeroTelefono);
             panel2.Controls.Add(bttSalir);
             panel2.Controls.Add(bttEmpleadoMenu);
@@ -57,6 +61,57 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(229, 1033);
             panel2.TabIndex = 27;
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Top;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 14.25F);
+            button2.ForeColor = SystemColors.ControlLightLight;
+            button2.Location = new Point(0, 686);
+            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(229, 98);
+            button2.TabIndex = 25;
+            button2.Text = "Cliente información";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 14.25F);
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(0, 588);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(229, 98);
+            button1.TabIndex = 24;
+            button1.Text = "Placa Vehiculo";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // bttNumeroTelefono
+            // 
+            bttNumeroTelefono.Dock = DockStyle.Top;
+            bttNumeroTelefono.FlatAppearance.BorderSize = 0;
+            bttNumeroTelefono.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
+            bttNumeroTelefono.FlatStyle = FlatStyle.Flat;
+            bttNumeroTelefono.Font = new Font("Segoe UI", 14.25F);
+            bttNumeroTelefono.ForeColor = SystemColors.ControlLightLight;
+            bttNumeroTelefono.Location = new Point(0, 490);
+            bttNumeroTelefono.Margin = new Padding(3, 4, 3, 4);
+            bttNumeroTelefono.Name = "bttNumeroTelefono";
+            bttNumeroTelefono.Size = new Size(229, 98);
+            bttNumeroTelefono.TabIndex = 23;
+            bttNumeroTelefono.Text = "NumeroTelefono";
+            bttNumeroTelefono.UseVisualStyleBackColor = true;
+            bttNumeroTelefono.Click += bttNumeroTelefono_Click;
             // 
             // bttSalir
             // 
@@ -178,23 +233,6 @@
             label1.Size = new Size(0, 39);
             label1.TabIndex = 24;
             // 
-            // bttNumeroTelefono
-            // 
-            bttNumeroTelefono.Dock = DockStyle.Top;
-            bttNumeroTelefono.FlatAppearance.BorderSize = 0;
-            bttNumeroTelefono.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
-            bttNumeroTelefono.FlatStyle = FlatStyle.Flat;
-            bttNumeroTelefono.Font = new Font("Segoe UI", 14.25F);
-            bttNumeroTelefono.ForeColor = SystemColors.ControlLightLight;
-            bttNumeroTelefono.Location = new Point(0, 490);
-            bttNumeroTelefono.Margin = new Padding(3, 4, 3, 4);
-            bttNumeroTelefono.Name = "bttNumeroTelefono";
-            bttNumeroTelefono.Size = new Size(229, 98);
-            bttNumeroTelefono.TabIndex = 23;
-            bttNumeroTelefono.Text = "NumeroTelefono";
-            bttNumeroTelefono.UseVisualStyleBackColor = true;
-            bttNumeroTelefono.Click += bttNumeroTelefono_Click;
-            // 
             // Form_Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -224,5 +262,7 @@
         private Label label1;
         private Button bttSalir;
         private Button bttNumeroTelefono;
+        private Button button1;
+        private Button button2;
     }
 }
