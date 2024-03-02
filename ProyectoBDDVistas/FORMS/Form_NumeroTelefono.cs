@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using ProyectoBDDVistas.CLASES;
 using ProyectoBDDVistas.METODOS_SQL_CONEXION;
 using System;
 using System.Collections.Generic;
@@ -16,25 +17,24 @@ namespace ProyectoBDDVistas.FORMS
     {
         public SqlConnection Conexion;
         public metodos_Sql_NumeroTelefono msnt;
+        public metodos_Sql_Empleado mse;
         public Form_NumeroTelefono(SqlConnection conexion)
         {
             InitializeComponent();
             Conexion = conexion;
             msnt = new metodos_Sql_NumeroTelefono();
-            msnt.DesplegarDatosNumeroTelefono(conexion, DGWFNumeroTelefono);
+            msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+            mse.DesplegarDatosEmpleados(Conexion, dGWEmpleado);
 
         }
-
-        private void DGWFNumeroTelefono_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        NumeroTelefono numeroTelefono;
+        private void bttAgregarRegistrar_Click(object sender, EventArgs e)
         {
-            DGWFNumeroTelefono.AutoResizeColumns();
-            DGWFNumeroTelefono.AutoResizeRows();
+            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoRegistrar.Text, txtBidEmpleadoRegistrar.Text, msnt.idTaller);
+            msnt.AgregarNumeroTelefono(Conexion, numeroTelefono);
 
-            // Ajustar el tamaño del DataGridView al de sus columnas y filas
-            int width = DGWFNumeroTelefono.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + DGWFNumeroTelefono.RowHeadersWidth + 3;
-            int height = DGWFNumeroTelefono.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + DGWFNumeroTelefono.ColumnHeadersHeight + 3;
-
-            DGWFNumeroTelefono.ClientSize = new Size(width, height);
+            //actualizar tabla numeroTelefono
+            msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
         }
     }
 }

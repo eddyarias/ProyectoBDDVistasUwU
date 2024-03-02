@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using ProyectoBDDVistas.CLASES;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,6 +37,33 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 // Manejar cualquier excepción aquí
                 MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
+
+        public void AgregarNumeroTelefono(SqlConnection conexion, NumeroTelefono numeroTelefono)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para la inserción de datos
+                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_EMPLEADO, NUMERO_TELEFONO, ID_TALLER) " +
+                                                "VALUES (@IdEmpleado, @NumeroTelefono, @IdTaller)", conexion);
+
+                // Asignar valores a los parámetros utilizando el objeto NumeroTelefono
+                cmd.Parameters.AddWithValue("@IdEmpleado", numeroTelefono.IdEmpleado);
+                cmd.Parameters.AddWithValue("@NumeroTelefono", numeroTelefono.NumeroTelefonico);
+                cmd.Parameters.AddWithValue("@IdTaller", numeroTelefono.IdTaller);
+
+                // Ejecutar la consulta
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar número de teléfono: " + ex.Message);
             }
         }
     }
