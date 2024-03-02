@@ -31,7 +31,7 @@
             label1 = new Label();
             dGWEmpleado = new DataGridView();
             dGWNumeroTelefono = new DataGridView();
-            facturaTabControl = new TabControl();
+            numTelTabControl = new TabControl();
             registrarTabPage = new TabPage();
             panel2 = new Panel();
             label5 = new Label();
@@ -56,7 +56,7 @@
             label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)dGWEmpleado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dGWNumeroTelefono).BeginInit();
-            facturaTabControl.SuspendLayout();
+            numTelTabControl.SuspendLayout();
             registrarTabPage.SuspendLayout();
             panel2.SuspendLayout();
             actualizarTabPage.SuspendLayout();
@@ -89,7 +89,7 @@
             dGWEmpleado.RowHeadersVisible = false;
             dGWEmpleado.RowHeadersWidth = 51;
             dGWEmpleado.RowTemplate.Height = 24;
-            dGWEmpleado.Size = new Size(1029, 310);
+            dGWEmpleado.Size = new Size(1086, 310);
             dGWEmpleado.TabIndex = 86;
             dGWEmpleado.CellClick += dGWEmpleado_CellClick;
             // 
@@ -101,26 +101,26 @@
             dGWNumeroTelefono.AllowUserToResizeRows = false;
             dGWNumeroTelefono.BackgroundColor = Color.White;
             dGWNumeroTelefono.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dGWNumeroTelefono.Location = new Point(1078, 130);
+            dGWNumeroTelefono.Location = new Point(1133, 130);
             dGWNumeroTelefono.Margin = new Padding(3, 4, 3, 4);
             dGWNumeroTelefono.Name = "dGWNumeroTelefono";
             dGWNumeroTelefono.ReadOnly = true;
             dGWNumeroTelefono.RowHeadersVisible = false;
             dGWNumeroTelefono.RowHeadersWidth = 51;
             dGWNumeroTelefono.RowTemplate.Height = 24;
-            dGWNumeroTelefono.Size = new Size(514, 634);
+            dGWNumeroTelefono.Size = new Size(412, 634);
             dGWNumeroTelefono.TabIndex = 87;
             dGWNumeroTelefono.CellClick += dGWNumeroTelefono_CellClick;
             // 
-            // facturaTabControl
+            // numTelTabControl
             // 
-            facturaTabControl.Controls.Add(registrarTabPage);
-            facturaTabControl.Controls.Add(actualizarTabPage);
-            facturaTabControl.Location = new Point(22, 88);
-            facturaTabControl.Name = "facturaTabControl";
-            facturaTabControl.SelectedIndex = 0;
-            facturaTabControl.Size = new Size(657, 349);
-            facturaTabControl.TabIndex = 119;
+            numTelTabControl.Controls.Add(registrarTabPage);
+            numTelTabControl.Controls.Add(actualizarTabPage);
+            numTelTabControl.Location = new Point(394, 106);
+            numTelTabControl.Name = "numTelTabControl";
+            numTelTabControl.SelectedIndex = 0;
+            numTelTabControl.Size = new Size(657, 349);
+            numTelTabControl.TabIndex = 119;
             // 
             // registrarTabPage
             // 
@@ -230,7 +230,7 @@
             actualizarTabPage.Padding = new Padding(3);
             actualizarTabPage.Size = new Size(649, 316);
             actualizarTabPage.TabIndex = 2;
-            actualizarTabPage.Text = "Actualizar / Eliminar";
+            actualizarTabPage.Text = "Eliminar";
             // 
             // panel1
             // 
@@ -346,7 +346,7 @@
             ClientSize = new Size(1614, 788);
             Controls.Add(label10);
             Controls.Add(label6);
-            Controls.Add(facturaTabControl);
+            Controls.Add(numTelTabControl);
             Controls.Add(dGWNumeroTelefono);
             Controls.Add(dGWEmpleado);
             Controls.Add(label1);
@@ -355,7 +355,7 @@
             Text = "Form_NumeroTelefono";
             ((System.ComponentModel.ISupportInitialize)dGWEmpleado).EndInit();
             ((System.ComponentModel.ISupportInitialize)dGWNumeroTelefono).EndInit();
-            facturaTabControl.ResumeLayout(false);
+            numTelTabControl.ResumeLayout(false);
             registrarTabPage.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -371,7 +371,7 @@
         private Label label1;
         private DataGridView dGWEmpleado;
         private DataGridView dGWNumeroTelefono;
-        private TabControl facturaTabControl;
+        private TabControl numTelTabControl;
         private TabPage registrarTabPage;
         private Panel panel2;
         private Label label9;

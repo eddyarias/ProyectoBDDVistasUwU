@@ -47,6 +47,9 @@ namespace ProyectoBDDVistas.FORMS
 
             //actualizar tabla numeroTelefono
             msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+            txtBnumTelEmpleadoActEli.Text = "";
+            txtBidEmpleadoActEli.Text = "";
+            txtBnumTelEmpleadoActEli.Text = "";
         }
         public string idEmpleado;
         private void dGWEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -60,7 +63,7 @@ namespace ProyectoBDDVistas.FORMS
 
             Empleado empleadoSeleccionado = mse.BuscarEmpleadoPorId(Conexion, idEmpleado);
 
-            if (facturaTabControl.SelectedIndex == 0)
+            if (numTelTabControl.SelectedIndex == 0)
             {
                 // txtBnumTelEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
                 txtBidEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
@@ -68,7 +71,7 @@ namespace ProyectoBDDVistas.FORMS
 
             }
             else {
-                if (facturaTabControl.SelectedIndex == 1) {
+                if (numTelTabControl.SelectedIndex == 1) {
                     txtBidEmpleadoActEli.Text = empleadoSeleccionado.IdEmpleado;
                     txtBnomEmpleadoActEli.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
 
@@ -85,8 +88,10 @@ namespace ProyectoBDDVistas.FORMS
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 // Obtenemos el valor de la celda en la columna deseada
-                idEmpleadoAct = dGWNumeroTelefono.Rows[e.RowIndex].Cells[0].Value.ToString();
-                msnt.MostrarInformacionEmpleado(Conexion, idEmpleadoAct, txtBidEmpleadoActEli, txtBnomEmpleadoActEli, txtBnumTelEmpleadoRegistrar);
+                idEmpleadoAct = dGWNumeroTelefono.Rows[e.RowIndex].Cells[1].Value.ToString();
+                MessageBox.Show(idEmpleadoAct);
+                msnt.MostrarInformacionEmpleado(Conexion, idEmpleadoAct, txtBidEmpleadoActEli, txtBnomEmpleadoActEli, txtBnumTelEmpleadoActEli);
+                numTelTabControl.SelectedIndex = 1;
             }
         }
     }
