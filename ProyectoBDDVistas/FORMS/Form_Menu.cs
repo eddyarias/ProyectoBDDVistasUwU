@@ -21,7 +21,6 @@ namespace ProyectoBDDVistas.FORMS
         private Form_Vehiculo form_Vehiculo;
         private Form_Factura form_Factura;
         private Form_NumeroTelefono form_NumeroTelefono;
-        private Form_PlacaVehiculo form_PlacaVehiculo;
         private Form_ClienteInformacion  form_ClienteInformacion;
         SqlConnection Conexion;
         public Form_Menu(SqlConnection conexion)
@@ -37,7 +36,6 @@ namespace ProyectoBDDVistas.FORMS
             form_Vehiculo = new Form_Vehiculo(Conexion);
             form_Factura = new Form_Factura(Conexion);
             form_NumeroTelefono = new Form_NumeroTelefono(Conexion);
-            form_PlacaVehiculo = new Form_PlacaVehiculo();
             form_ClienteInformacion = new Form_ClienteInformacion();
             /*Este forulario es el contenedor*/
             this.IsMdiContainer = true;
@@ -52,7 +50,6 @@ namespace ProyectoBDDVistas.FORMS
             form_Vehiculo = (Form_Vehiculo)PrepararForm(form_Vehiculo);
             form_Factura = (Form_Factura)PrepararForm(form_Factura);
             form_NumeroTelefono = (Form_NumeroTelefono)PrepararForm(form_NumeroTelefono);
-            form_PlacaVehiculo = (Form_PlacaVehiculo)PrepararForm(form_PlacaVehiculo);
             form_ClienteInformacion = (Form_ClienteInformacion)PrepararForm(form_ClienteInformacion);
         }
 
@@ -65,7 +62,6 @@ namespace ProyectoBDDVistas.FORMS
             form_Vehiculo.Hide();
             form_Factura.Hide();
             form_NumeroTelefono.Hide();
-            form_PlacaVehiculo.Hide();
             form_ClienteInformacion.Hide();
         }
 
@@ -121,12 +117,6 @@ namespace ProyectoBDDVistas.FORMS
         {
             OcultarFormularios();
             form_NumeroTelefono.Show();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            OcultarFormularios();
-            form_PlacaVehiculo.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

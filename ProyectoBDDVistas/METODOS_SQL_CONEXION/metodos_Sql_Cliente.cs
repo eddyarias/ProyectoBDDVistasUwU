@@ -129,7 +129,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
             try
             {
-
                 // Crear el comando SQL para obtener datos del cliente por nombre y apellido
                 SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} WHERE NOMBRE_CLIENTE = @NombreCliente AND APELLIDO_CLIENTE = @ApellidoCliente", conexion);
 

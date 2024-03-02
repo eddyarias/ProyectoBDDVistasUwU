@@ -181,6 +181,27 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             }
         }
 
+        public void DesplegarPlacaMatriculaVehiculos(SqlConnection conexion, DataGridView dataGridView)
+        {
+            try
+            {
+                // Crear un adaptador SQL para cargar los datos
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT NUMMATRICULA_VEHICULO FROM VISTA_VEHICULO", conexion);
+                // Crear un DataTable para contener los datos
+                DataTable dataTable = new DataTable();
+                // Llenar el DataTable con los datos del adaptador
+                sqlDataAdapter.Fill(dataTable);
+                // Asignar el DataTable como DataSource del DataGridView
+                dataGridView.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción aquí
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
+        }
+
+
 
     }
 }

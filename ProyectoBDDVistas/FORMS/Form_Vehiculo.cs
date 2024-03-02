@@ -38,6 +38,8 @@ namespace ProyectoBDDVistas.FORMS
 
             msc.DesplegarDatosClientes(Conexion, DGWClientes);
             msv.DesplegarDatosVehiculos(conexion, DGWVEHICULO);
+            msv.DesplegarPlacaMatriculaVehiculos(conexion, dGVPlacVehiculos);
+
         }
 
         private void btnRegistrarVehiculo_Click(object sender, EventArgs e)
@@ -157,6 +159,21 @@ namespace ProyectoBDDVistas.FORMS
 
             //volver a desplegar para actualizar la tabla
             msv.DesplegarDatosVehiculos(Conexion, DGWVEHICULO);
+        }
+
+        private void Form_Vehiculo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dGVPlacVehiculos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
         }
     }
 }

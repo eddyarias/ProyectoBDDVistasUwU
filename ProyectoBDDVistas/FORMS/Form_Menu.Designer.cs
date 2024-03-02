@@ -30,7 +30,6 @@
         {
             panel2 = new Panel();
             button2 = new Button();
-            button1 = new Button();
             bttNumeroTelefono = new Button();
             bttSalir = new Button();
             bttEmpleadoMenu = new Button();
@@ -47,7 +46,6 @@
             // 
             panel2.BackColor = Color.FromArgb(26, 32, 40);
             panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
             panel2.Controls.Add(bttNumeroTelefono);
             panel2.Controls.Add(bttSalir);
             panel2.Controls.Add(bttEmpleadoMenu);
@@ -70,7 +68,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 14.25F);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(0, 686);
+            button2.Location = new Point(0, 588);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(229, 98);
@@ -78,23 +76,6 @@
             button2.Text = "Cliente información";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
-            // button1
-            // 
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 80, 200);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 14.25F);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(0, 588);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(229, 98);
-            button1.TabIndex = 24;
-            button1.Text = "Placa Vehiculo";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
             // 
             // bttNumeroTelefono
             // 
@@ -262,7 +243,6 @@
         private Label label1;
         private Button bttSalir;
         private Button bttNumeroTelefono;
-        private Button button1;
         private Button button2;
     }
 }

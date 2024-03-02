@@ -65,19 +65,27 @@
             personNameLabel = new Label();
             comercialNameLabel = new Label();
             clientesTabControl = new TabControl();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            dGVPlacVehiculos = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)DGWVEHICULO).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGWClientes).BeginInit();
             eliminarTabPage.SuspendLayout();
             actualizarTabPage.SuspendLayout();
             registrarTabPage.SuspendLayout();
             clientesTabControl.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dGVPlacVehiculos).BeginInit();
             SuspendLayout();
             // 
             // DGWVEHICULO
             // 
             DGWVEHICULO.BackgroundColor = Color.White;
             DGWVEHICULO.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGWVEHICULO.Location = new Point(130, 481);
+            DGWVEHICULO.Location = new Point(144, 423);
             DGWVEHICULO.Margin = new Padding(3, 4, 3, 4);
             DGWVEHICULO.Name = "DGWVEHICULO";
             DGWVEHICULO.RowHeadersWidth = 51;
@@ -93,15 +101,16 @@
             label19.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label19.Location = new Point(0, 0);
             label19.Name = "label19";
-            label19.Size = new Size(1612, 40);
+            label19.Size = new Size(1612, 47);
             label19.TabIndex = 46;
             label19.Text = "VEHÍCULO";
             label19.TextAlign = ContentAlignment.TopCenter;
+            label19.Click += label19_Click;
             // 
             // DGWClientes
             // 
             DGWClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGWClientes.Location = new Point(672, 100);
+            DGWClientes.Location = new Point(678, 58);
             DGWClientes.Name = "DGWClientes";
             DGWClientes.RowHeadersWidth = 51;
             DGWClientes.Size = new Size(907, 293);
@@ -112,7 +121,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(672, 67);
+            label7.Location = new Point(678, 25);
             label7.Name = "label7";
             label7.Size = new Size(95, 20);
             label7.TabIndex = 48;
@@ -121,7 +130,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(130, 448);
+            label20.Location = new Point(153, 399);
             label20.Name = "label20";
             label20.Size = new Size(105, 20);
             label20.TabIndex = 49;
@@ -451,26 +460,70 @@
             clientesTabControl.Controls.Add(registrarTabPage);
             clientesTabControl.Controls.Add(actualizarTabPage);
             clientesTabControl.Controls.Add(eliminarTabPage);
-            clientesTabControl.Location = new Point(75, 67);
+            clientesTabControl.Location = new Point(102, 29);
             clientesTabControl.Name = "clientesTabControl";
             clientesTabControl.SelectedIndex = 0;
             clientesTabControl.Size = new Size(524, 326);
             clientesTabControl.TabIndex = 45;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 47);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1612, 806);
+            tabControl1.TabIndex = 50;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(clientesTabControl);
+            tabPage1.Controls.Add(label20);
+            tabPage1.Controls.Add(DGWVEHICULO);
+            tabPage1.Controls.Add(label7);
+            tabPage1.Controls.Add(DGWClientes);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1604, 773);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "VEHÍCULO";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(dGVPlacVehiculos);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1604, 773);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "PLACA VEHÍCULOS";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dGVPlacVehiculos
+            // 
+            dGVPlacVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dGVPlacVehiculos.Location = new Point(550, 22);
+            dGVPlacVehiculos.Name = "dGVPlacVehiculos";
+            dGVPlacVehiculos.RowHeadersWidth = 51;
+            dGVPlacVehiculos.Size = new Size(269, 670);
+            dGVPlacVehiculos.TabIndex = 0;
+            dGVPlacVehiculos.DataBindingComplete += dGVPlacVehiculos_DataBindingComplete;
             // 
             // Form_Vehiculo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1612, 853);
-            Controls.Add(label20);
-            Controls.Add(label7);
-            Controls.Add(DGWClientes);
+            Controls.Add(tabControl1);
             Controls.Add(label19);
-            Controls.Add(clientesTabControl);
-            Controls.Add(DGWVEHICULO);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form_Vehiculo";
             Text = "Form_Vehiculo";
+            Load += Form_Vehiculo_Load;
             ((System.ComponentModel.ISupportInitialize)DGWVEHICULO).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGWClientes).EndInit();
             eliminarTabPage.ResumeLayout(false);
@@ -480,8 +533,12 @@
             registrarTabPage.ResumeLayout(false);
             registrarTabPage.PerformLayout();
             clientesTabControl.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dGVPlacVehiculos).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -522,5 +579,9 @@
         private Label personNameLabel;
         private Label comercialNameLabel;
         private TabControl clientesTabControl;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private DataGridView dGVPlacVehiculos;
     }
 }
