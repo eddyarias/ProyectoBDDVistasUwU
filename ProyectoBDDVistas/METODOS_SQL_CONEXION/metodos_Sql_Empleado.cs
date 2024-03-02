@@ -15,17 +15,13 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tabla = "VISTA_EMPLEADO";
         public string tabla2 = "VISTA_NUMEROTELEFONO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
 
         public void DesplegarDatosEmpleados(SqlConnection conexion, DataGridView dataGridView)
         {
             try
             {
-                // Asegúrate de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
+
                 // Crear un adaptador SQL para cargar los datos
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla}", conexion);
                 // Crear un DataTable para contener los datos
@@ -195,14 +191,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al buscar datos del empleado: " + ex.Message);
-            }
-            finally
-            {
-                // Es buena práctica cerrar la conexión después de usarla
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
 
             return empleado;

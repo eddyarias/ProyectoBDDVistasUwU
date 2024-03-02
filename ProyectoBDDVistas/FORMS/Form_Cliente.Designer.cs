@@ -74,7 +74,7 @@
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1482, 40);
+            label1.Size = new Size(1595, 40);
             label1.TabIndex = 0;
             label1.Text = "CLIENTES";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -401,11 +401,11 @@
             DGWClientes.AllowUserToAddRows = false;
             DGWClientes.AllowUserToDeleteRows = false;
             DGWClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGWClientes.Location = new Point(618, 126);
+            DGWClientes.Location = new Point(543, 126);
             DGWClientes.Name = "DGWClientes";
             DGWClientes.ReadOnly = true;
             DGWClientes.RowHeadersWidth = 51;
-            DGWClientes.Size = new Size(554, 426);
+            DGWClientes.Size = new Size(1022, 429);
             DGWClientes.TabIndex = 87;
             DGWClientes.CellClick += DGWClientes_CellClick;
             DGWClientes.DataBindingComplete += DGWClientes_DataBindingComplete;
@@ -414,7 +414,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1482, 853);
+            ClientSize = new Size(1595, 853);
             ControlBox = false;
             Controls.Add(DGWClientes);
             Controls.Add(tabCRUDClientes);

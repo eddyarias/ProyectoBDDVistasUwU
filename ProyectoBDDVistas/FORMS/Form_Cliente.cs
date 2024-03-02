@@ -38,14 +38,21 @@ namespace ProyectoBDDVistas.FORMS
 
         private void DGWClientes_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            DGWClientes.AutoResizeColumns();
-            DGWClientes.AutoResizeRows();
+            // Define el ancho deseado para cada columna
+            int[] columnWidths = { 200, 200, 200, 200, 200 }; // Ejemplo: 4 columnas con diferentes anchos
 
-            // Ajustar el tamaño del DataGridView al de sus columnas y filas
-            int width = DGWClientes.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + DGWClientes.RowHeadersWidth + 3;
-            int height = DGWClientes.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + DGWClientes.ColumnHeadersHeight + 3;
+            // Asegúrate de que el número de elementos en columnWidths coincida con el número de columnas en el DataGridView
+            if (columnWidths.Length != DGWClientes.Columns.Count)
+            {
+                MessageBox.Show("El número de anchos de columna no coincide con el número de columnas en el DataGridView.");
+                return;
+            }
 
-            DGWClientes.ClientSize = new Size(width, height);
+            // Establece el ancho deseado para cada columna
+            for (int i = 0; i < DGWClientes.Columns.Count; i++)
+            {
+                DGWClientes.Columns[i].Width = columnWidths[i];
+            }
         }
 
         private void BAgregar_Click(object sender, EventArgs e)

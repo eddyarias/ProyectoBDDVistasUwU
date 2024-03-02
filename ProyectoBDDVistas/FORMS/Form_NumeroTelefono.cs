@@ -70,14 +70,16 @@ namespace ProyectoBDDVistas.FORMS
                 txtBnombEmpleadoRegistrar.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
 
             }
-            //else {
-            //    if (numTelTabControl.SelectedIndex == 1) {
-            //        txtBidEmpleadoActEli.Text = empleadoSeleccionado.IdEmpleado;
-            //        txtBnomEmpleadoActEli.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+            else
+            {
+                if (numTelTabControl.SelectedIndex == 1)
+                {
+                    txtBidEmpleadoActEli.Text = empleadoSeleccionado.IdEmpleado;
+                    txtBnomEmpleadoActEli.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
 
-            //    }
-            
-            //}
+                }
+
+            }
         }
 
         public string idEmpleadoAct;
