@@ -30,17 +30,16 @@
         {
             clientesTabControl = new TabControl();
             registrarTabPage = new TabPage();
+            label21 = new Label();
+            dTPFechaCompraVehiculoR = new DateTimePicker();
             label13 = new Label();
-            textBox16 = new TextBox();
+            txtBApellidoVehiculoR = new TextBox();
             label8 = new Label();
-            textBox2 = new TextBox();
-            button4 = new Button();
+            txtBNombreVehiculoR = new TextBox();
+            BRegistrarVehiculo = new Button();
             personNameLabel = new Label();
             comercialNameLabel = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            label7 = new Label();
-            textBox6 = new TextBox();
+            txtBNMatriculaVehiculoR = new TextBox();
             consultarTabPage = new TabPage();
             label1 = new Label();
             textBox7 = new TextBox();
@@ -79,12 +78,16 @@
             button2 = new Button();
             DGWVEHICULO = new DataGridView();
             label19 = new Label();
+            DGWClientes = new DataGridView();
+            label7 = new Label();
+            label20 = new Label();
             clientesTabControl.SuspendLayout();
             registrarTabPage.SuspendLayout();
             consultarTabPage.SuspendLayout();
             actualizarTabPage.SuspendLayout();
             eliminarTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGWVEHICULO).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DGWClientes).BeginInit();
             SuspendLayout();
             // 
             // clientesTabControl
@@ -93,83 +96,101 @@
             clientesTabControl.Controls.Add(consultarTabPage);
             clientesTabControl.Controls.Add(actualizarTabPage);
             clientesTabControl.Controls.Add(eliminarTabPage);
-            clientesTabControl.Location = new Point(29, 45);
+            clientesTabControl.Location = new Point(75, 67);
             clientesTabControl.Name = "clientesTabControl";
             clientesTabControl.SelectedIndex = 0;
-            clientesTabControl.Size = new Size(524, 511);
+            clientesTabControl.Size = new Size(524, 326);
             clientesTabControl.TabIndex = 45;
             // 
             // registrarTabPage
             // 
             registrarTabPage.BackColor = Color.White;
+            registrarTabPage.Controls.Add(label21);
+            registrarTabPage.Controls.Add(dTPFechaCompraVehiculoR);
             registrarTabPage.Controls.Add(label13);
-            registrarTabPage.Controls.Add(textBox16);
+            registrarTabPage.Controls.Add(txtBApellidoVehiculoR);
             registrarTabPage.Controls.Add(label8);
-            registrarTabPage.Controls.Add(textBox2);
-            registrarTabPage.Controls.Add(button4);
+            registrarTabPage.Controls.Add(txtBNombreVehiculoR);
+            registrarTabPage.Controls.Add(BRegistrarVehiculo);
             registrarTabPage.Controls.Add(personNameLabel);
             registrarTabPage.Controls.Add(comercialNameLabel);
-            registrarTabPage.Controls.Add(textBox3);
-            registrarTabPage.Controls.Add(textBox4);
-            registrarTabPage.Controls.Add(label7);
-            registrarTabPage.Controls.Add(textBox6);
+            registrarTabPage.Controls.Add(txtBNMatriculaVehiculoR);
             registrarTabPage.Location = new Point(4, 29);
             registrarTabPage.Name = "registrarTabPage";
             registrarTabPage.Padding = new Padding(3);
-            registrarTabPage.Size = new Size(516, 478);
+            registrarTabPage.Size = new Size(516, 293);
             registrarTabPage.TabIndex = 0;
             registrarTabPage.Text = "Registrar";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(51, 118);
+            label21.Name = "label21";
+            label21.Size = new Size(321, 20);
+            label21.TabIndex = 45;
+            label21.Text = "Seleccione al propietario de la lista de clientes.";
+            // 
+            // dTPFechaCompraVehiculoR
+            // 
+            dTPFechaCompraVehiculoR.Location = new Point(202, 69);
+            dTPFechaCompraVehiculoR.Name = "dTPFechaCompraVehiculoR";
+            dTPFechaCompraVehiculoR.Size = new Size(250, 27);
+            dTPFechaCompraVehiculoR.TabIndex = 44;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(126, 240);
+            label13.Location = new Point(114, 190);
             label13.Name = "label13";
             label13.Size = new Size(69, 20);
             label13.TabIndex = 42;
             label13.Text = "Apellido:";
             // 
-            // textBox16
+            // txtBApellidoVehiculoR
             // 
-            textBox16.Location = new Point(216, 231);
-            textBox16.Margin = new Padding(3, 4, 3, 4);
-            textBox16.Multiline = true;
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(212, 29);
-            textBox16.TabIndex = 43;
+            txtBApellidoVehiculoR.Location = new Point(204, 181);
+            txtBApellidoVehiculoR.Margin = new Padding(3, 4, 3, 4);
+            txtBApellidoVehiculoR.Multiline = true;
+            txtBApellidoVehiculoR.Name = "txtBApellidoVehiculoR";
+            txtBApellidoVehiculoR.ReadOnly = true;
+            txtBApellidoVehiculoR.Size = new Size(212, 29);
+            txtBApellidoVehiculoR.TabIndex = 43;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(128, 201);
+            label8.Location = new Point(116, 151);
             label8.Name = "label8";
             label8.Size = new Size(67, 20);
             label8.TabIndex = 40;
             label8.Text = "Nombre:";
             // 
-            // textBox2
+            // txtBNombreVehiculoR
             // 
-            textBox2.Location = new Point(214, 192);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(212, 29);
-            textBox2.TabIndex = 41;
+            txtBNombreVehiculoR.Location = new Point(202, 142);
+            txtBNombreVehiculoR.Margin = new Padding(3, 4, 3, 4);
+            txtBNombreVehiculoR.Multiline = true;
+            txtBNombreVehiculoR.Name = "txtBNombreVehiculoR";
+            txtBNombreVehiculoR.ReadOnly = true;
+            txtBNombreVehiculoR.Size = new Size(212, 29);
+            txtBNombreVehiculoR.TabIndex = 41;
             // 
-            // button4
+            // BRegistrarVehiculo
             // 
-            button4.Location = new Point(230, 325);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(114, 37);
-            button4.TabIndex = 39;
-            button4.Text = "Registrar";
-            button4.UseVisualStyleBackColor = true;
+            BRegistrarVehiculo.Location = new Point(218, 236);
+            BRegistrarVehiculo.Margin = new Padding(3, 4, 3, 4);
+            BRegistrarVehiculo.Name = "BRegistrarVehiculo";
+            BRegistrarVehiculo.Size = new Size(114, 37);
+            BRegistrarVehiculo.TabIndex = 39;
+            BRegistrarVehiculo.Text = "Registrar";
+            BRegistrarVehiculo.UseVisualStyleBackColor = true;
+            BRegistrarVehiculo.Click += btnRegistrarVehiculo_Click;
             // 
             // personNameLabel
             // 
             personNameLabel.AutoSize = true;
-            personNameLabel.Location = new Point(63, 124);
+            personNameLabel.Location = new Point(51, 35);
             personNameLabel.Name = "personNameLabel";
             personNameLabel.Size = new Size(132, 20);
             personNameLabel.TabIndex = 6;
@@ -178,47 +199,20 @@
             // comercialNameLabel
             // 
             comercialNameLabel.AutoSize = true;
-            comercialNameLabel.Location = new Point(88, 167);
+            comercialNameLabel.Location = new Point(76, 78);
             comercialNameLabel.Name = "comercialNameLabel";
             comercialNameLabel.Size = new Size(107, 20);
             comercialNameLabel.TabIndex = 7;
             comercialNameLabel.Text = "Fecha Compra:";
             // 
-            // textBox3
+            // txtBNMatriculaVehiculoR
             // 
-            textBox3.Location = new Point(214, 115);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(212, 29);
-            textBox3.TabIndex = 15;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(214, 153);
-            textBox4.Margin = new Padding(3, 4, 3, 4);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(212, 29);
-            textBox4.TabIndex = 16;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(112, 278);
-            label7.Name = "label7";
-            label7.Size = new Size(83, 20);
-            label7.TabIndex = 9;
-            label7.Text = "ID taller ??:";
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(214, 269);
-            textBox6.Margin = new Padding(3, 4, 3, 4);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(102, 29);
-            textBox6.TabIndex = 18;
+            txtBNMatriculaVehiculoR.Location = new Point(202, 26);
+            txtBNMatriculaVehiculoR.Margin = new Padding(3, 4, 3, 4);
+            txtBNMatriculaVehiculoR.Multiline = true;
+            txtBNMatriculaVehiculoR.Name = "txtBNMatriculaVehiculoR";
+            txtBNMatriculaVehiculoR.Size = new Size(212, 29);
+            txtBNMatriculaVehiculoR.TabIndex = 15;
             // 
             // consultarTabPage
             // 
@@ -236,7 +230,7 @@
             consultarTabPage.Location = new Point(4, 29);
             consultarTabPage.Name = "consultarTabPage";
             consultarTabPage.Padding = new Padding(3);
-            consultarTabPage.Size = new Size(516, 478);
+            consultarTabPage.Size = new Size(516, 293);
             consultarTabPage.TabIndex = 1;
             consultarTabPage.Text = "Consultar";
             consultarTabPage.UseVisualStyleBackColor = true;
@@ -358,14 +352,14 @@
             actualizarTabPage.Location = new Point(4, 29);
             actualizarTabPage.Name = "actualizarTabPage";
             actualizarTabPage.Padding = new Padding(3);
-            actualizarTabPage.Size = new Size(516, 478);
+            actualizarTabPage.Size = new Size(516, 293);
             actualizarTabPage.TabIndex = 2;
             actualizarTabPage.Text = "Actualizar";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(85, 234);
+            label4.Location = new Point(88, 148);
             label4.Name = "label4";
             label4.Size = new Size(69, 20);
             label4.TabIndex = 64;
@@ -373,7 +367,7 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(151, 104);
+            textBox8.Location = new Point(154, 18);
             textBox8.Margin = new Padding(3, 4, 3, 4);
             textBox8.Multiline = true;
             textBox8.Name = "textBox8";
@@ -383,7 +377,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(25, 116);
+            label16.Location = new Point(28, 30);
             label16.Name = "label16";
             label16.Size = new Size(132, 20);
             label16.TabIndex = 55;
@@ -391,7 +385,7 @@
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(153, 220);
+            textBox11.Location = new Point(156, 134);
             textBox11.Margin = new Padding(3, 4, 3, 4);
             textBox11.Multiline = true;
             textBox11.Name = "textBox11";
@@ -401,7 +395,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(50, 156);
+            label11.Location = new Point(53, 70);
             label11.Name = "label11";
             label11.Size = new Size(107, 20);
             label11.TabIndex = 56;
@@ -409,7 +403,7 @@
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(151, 259);
+            textBox12.Location = new Point(154, 173);
             textBox12.Margin = new Padding(3, 4, 3, 4);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
@@ -418,7 +412,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(122, 324);
+            button1.Location = new Point(125, 238);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(114, 37);
@@ -429,7 +423,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(85, 195);
+            label5.Location = new Point(88, 109);
             label5.Name = "label5";
             label5.Size = new Size(67, 20);
             label5.TabIndex = 62;
@@ -437,7 +431,7 @@
             // 
             // textBox18
             // 
-            textBox18.Location = new Point(151, 143);
+            textBox18.Location = new Point(154, 57);
             textBox18.Margin = new Padding(3, 4, 3, 4);
             textBox18.Multiline = true;
             textBox18.Name = "textBox18";
@@ -447,7 +441,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(77, 270);
+            label9.Location = new Point(80, 184);
             label9.Name = "label9";
             label9.Size = new Size(83, 20);
             label9.TabIndex = 57;
@@ -455,7 +449,7 @@
             // 
             // textBox14
             // 
-            textBox14.Location = new Point(151, 181);
+            textBox14.Location = new Point(154, 95);
             textBox14.Margin = new Padding(3, 4, 3, 4);
             textBox14.Multiline = true;
             textBox14.Name = "textBox14";
@@ -479,14 +473,14 @@
             eliminarTabPage.Location = new Point(4, 29);
             eliminarTabPage.Name = "eliminarTabPage";
             eliminarTabPage.Padding = new Padding(3);
-            eliminarTabPage.Size = new Size(516, 478);
+            eliminarTabPage.Size = new Size(516, 293);
             eliminarTabPage.TabIndex = 3;
             eliminarTabPage.Text = "Eliminar";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(190, 208);
+            label10.Location = new Point(119, 147);
             label10.Name = "label10";
             label10.Size = new Size(69, 20);
             label10.TabIndex = 75;
@@ -494,7 +488,7 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(256, 79);
+            textBox10.Location = new Point(185, 18);
             textBox10.Margin = new Padding(3, 4, 3, 4);
             textBox10.Multiline = true;
             textBox10.Name = "textBox10";
@@ -503,7 +497,7 @@
             // 
             // textBox20
             // 
-            textBox20.Location = new Point(256, 156);
+            textBox20.Location = new Point(185, 95);
             textBox20.Margin = new Padding(3, 4, 3, 4);
             textBox20.Multiline = true;
             textBox20.Name = "textBox20";
@@ -513,7 +507,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(130, 91);
+            label12.Location = new Point(59, 30);
             label12.Name = "label12";
             label12.Size = new Size(132, 20);
             label12.TabIndex = 66;
@@ -522,7 +516,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(182, 244);
+            label18.Location = new Point(111, 183);
             label18.Name = "label18";
             label18.Size = new Size(83, 20);
             label18.TabIndex = 68;
@@ -530,7 +524,7 @@
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(258, 195);
+            textBox13.Location = new Point(187, 134);
             textBox13.Margin = new Padding(3, 4, 3, 4);
             textBox13.Multiline = true;
             textBox13.Name = "textBox13";
@@ -539,7 +533,7 @@
             // 
             // textBox19
             // 
-            textBox19.Location = new Point(256, 117);
+            textBox19.Location = new Point(185, 56);
             textBox19.Margin = new Padding(3, 4, 3, 4);
             textBox19.Multiline = true;
             textBox19.Name = "textBox19";
@@ -549,7 +543,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(155, 131);
+            label15.Location = new Point(84, 70);
             label15.Name = "label15";
             label15.Size = new Size(107, 20);
             label15.TabIndex = 67;
@@ -558,7 +552,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(190, 170);
+            label17.Location = new Point(119, 109);
             label17.Name = "label17";
             label17.Size = new Size(67, 20);
             label17.TabIndex = 73;
@@ -566,7 +560,7 @@
             // 
             // textBox15
             // 
-            textBox15.Location = new Point(256, 233);
+            textBox15.Location = new Point(185, 172);
             textBox15.Margin = new Padding(3, 4, 3, 4);
             textBox15.Multiline = true;
             textBox15.Name = "textBox15";
@@ -575,7 +569,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(234, 297);
+            button2.Location = new Point(163, 236);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(114, 37);
@@ -587,12 +581,12 @@
             // 
             DGWVEHICULO.BackgroundColor = Color.White;
             DGWVEHICULO.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGWVEHICULO.Location = new Point(623, 55);
+            DGWVEHICULO.Location = new Point(130, 481);
             DGWVEHICULO.Margin = new Padding(3, 4, 3, 4);
             DGWVEHICULO.Name = "DGWVEHICULO";
             DGWVEHICULO.RowHeadersWidth = 51;
             DGWVEHICULO.RowTemplate.Height = 24;
-            DGWVEHICULO.Size = new Size(410, 533);
+            DGWVEHICULO.Size = new Size(1384, 341);
             DGWVEHICULO.TabIndex = 43;
             DGWVEHICULO.DataBindingComplete += DGWVEHICULO_DataBindingComplete;
             // 
@@ -602,16 +596,48 @@
             label19.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label19.Location = new Point(0, 0);
             label19.Name = "label19";
-            label19.Size = new Size(1482, 40);
+            label19.Size = new Size(1612, 40);
             label19.TabIndex = 46;
             label19.Text = "VEHÍCULO";
             label19.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // DGWClientes
+            // 
+            DGWClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGWClientes.Location = new Point(672, 100);
+            DGWClientes.Name = "DGWClientes";
+            DGWClientes.RowHeadersWidth = 51;
+            DGWClientes.Size = new Size(907, 293);
+            DGWClientes.TabIndex = 47;
+            DGWClientes.CellClick += dGWCliente_CellClick;
+            DGWClientes.DataBindingComplete += DGWClientes_DataBindingComplete;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(672, 67);
+            label7.Name = "label7";
+            label7.Size = new Size(95, 20);
+            label7.TabIndex = 48;
+            label7.Text = "Lista Clientes";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(130, 448);
+            label20.Name = "label20";
+            label20.Size = new Size(105, 20);
+            label20.TabIndex = 49;
+            label20.Text = "Lista Vehículos";
             // 
             // Form_Vehiculo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1482, 853);
+            ClientSize = new Size(1612, 853);
+            Controls.Add(label20);
+            Controls.Add(label7);
+            Controls.Add(DGWClientes);
             Controls.Add(label19);
             Controls.Add(clientesTabControl);
             Controls.Add(DGWVEHICULO);
@@ -628,7 +654,9 @@
             eliminarTabPage.ResumeLayout(false);
             eliminarTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGWVEHICULO).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DGWClientes).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -636,16 +664,13 @@
         private TabControl clientesTabControl;
         private TabPage registrarTabPage;
         private Label label13;
-        private TextBox textBox16;
+        private TextBox txtBApellidoVehiculoR;
         private Label label8;
-        private TextBox textBox2;
-        private Button button4;
+        private TextBox txtBNombreVehiculoR;
+        private Button BRegistrarVehiculo;
         private Label personNameLabel;
         private Label comercialNameLabel;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Label label7;
-        private TextBox textBox6;
+        private TextBox txtBNMatriculaVehiculoR;
         private TabPage consultarTabPage;
         private Label label1;
         private TextBox textBox7;
@@ -684,5 +709,10 @@
         private Button button2;
         private DataGridView DGWVEHICULO;
         private Label label19;
+        private DateTimePicker dTPFechaCompraVehiculoR;
+        private DataGridView DGWClientes;
+        private Label label21;
+        private Label label7;
+        private Label label20;
     }
 }

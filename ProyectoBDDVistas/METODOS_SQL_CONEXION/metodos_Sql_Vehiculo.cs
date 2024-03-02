@@ -25,7 +25,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                     conexion.Open();
                 }
                 // Crear un adaptador SQL para cargar los datos
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM " + tabla + "", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM VISTA_VEHICULO", conexion);
                 // Crear un DataTable para contener los datos
                 DataTable dataTable = new DataTable();
                 // Llenar el DataTable con los datos del adaptador
@@ -122,6 +122,35 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
             return vehiculo;
         }
+
+        public void InsertarDatosVehiculo(SqlConnection conexion, Vehiculo vehiculo)
+        {
+            try
+            {
+                // Crear el comando SQL para la inserción de datos
+                SqlCommand cmd = new SqlCommand($"SET XACT_ABORT ON; INSERT INTO {tabla} (NUMMATRICULA_VEHICULO, ID_TALLER, NOMBRE_CLIENTE, APELLIDO_CLIENTE, FECHACOMPRA_VEHICULO) VALUES (@NumMatriculaVehiculo, @IdTaller, @NombreCliente, @ApellidoCliente, @FechaCompraVehiculo)", conexion);
+
+                // Asignar valores a los parámetros utilizando el objeto Vehiculo
+                cmd.Parameters.AddWithValue("@NumMatriculaVehiculo", vehiculo.NumMatriculaVehiculo);
+                cmd.Parameters.AddWithValue("@IdTaller", vehiculo.IdTaller);
+                cmd.Parameters.AddWithValue("@NombreCliente", vehiculo.NombreCliente);
+                cmd.Parameters.AddWithValue("@ApellidoCliente", vehiculo.ApellidoCliente);
+                cmd.Parameters.AddWithValue("@FechaCompraVehiculo", vehiculo.FechaCompraVehiculo);
+
+                // Ejecutar la consulta
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Vehículo ingresado correctamente");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos: " + ex.Message);
+            }
+        }
+
+
+
     }
 }
 
