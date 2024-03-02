@@ -506,10 +506,10 @@
             // dGVPlacVehiculos
             // 
             dGVPlacVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dGVPlacVehiculos.Location = new Point(550, 22);
+            dGVPlacVehiculos.Location = new Point(629, 74);
             dGVPlacVehiculos.Name = "dGVPlacVehiculos";
             dGVPlacVehiculos.RowHeadersWidth = 51;
-            dGVPlacVehiculos.Size = new Size(269, 670);
+            dGVPlacVehiculos.Size = new Size(277, 670);
             dGVPlacVehiculos.TabIndex = 0;
             dGVPlacVehiculos.DataBindingComplete += dGVPlacVehiculos_DataBindingComplete;
             // 

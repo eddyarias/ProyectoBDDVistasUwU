@@ -37,8 +37,8 @@ namespace ProyectoBDDVistas.FORMS
             msc = new metodos_Sql_Cliente();
 
             msc.DesplegarDatosClientes(Conexion, DGWClientes);
-            msv.DesplegarDatosVehiculos(conexion, DGWVEHICULO);
-            msv.DesplegarPlacaMatriculaVehiculos(conexion, dGVPlacVehiculos);
+            msv.DesplegarDatosVehiculos(Conexion, DGWVEHICULO);
+            msv.DesplegarPlacaMatriculaVehiculos(Conexion, dGVPlacVehiculos);
 
         }
 
@@ -48,6 +48,7 @@ namespace ProyectoBDDVistas.FORMS
             msv.InsertarDatosVehiculo(Conexion, vehiculo);
             //volver a desplegar para actualizar la tabla
             msv.DesplegarDatosVehiculos(Conexion, DGWVEHICULO);
+            msv.DesplegarPlacaMatriculaVehiculos(Conexion, dGVPlacVehiculos);
             limpiarCajasTextoRegistrarVehiculo();
         }
 
@@ -151,6 +152,8 @@ namespace ProyectoBDDVistas.FORMS
 
             //volver a desplegar para actualizar la tabla
             msv.DesplegarDatosVehiculos(Conexion, DGWVEHICULO);
+            msv.DesplegarPlacaMatriculaVehiculos(Conexion, dGVPlacVehiculos);
+
         }
 
         private void BEliminarVehiculo_Click(object sender, EventArgs e)
@@ -159,6 +162,7 @@ namespace ProyectoBDDVistas.FORMS
 
             //volver a desplegar para actualizar la tabla
             msv.DesplegarDatosVehiculos(Conexion, DGWVEHICULO);
+            msv.DesplegarPlacaMatriculaVehiculos(Conexion, dGVPlacVehiculos);
         }
 
         private void Form_Vehiculo_Load(object sender, EventArgs e)
@@ -173,7 +177,21 @@ namespace ProyectoBDDVistas.FORMS
 
         private void dGVPlacVehiculos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
+            // Define el ancho deseado para cada columna
+            int[] columnWidths = { 200};
 
+            // Asegúrate de que el número de elementos en columnWidths coincida con el número de columnas en el DataGridView
+            if (columnWidths.Length != dGVPlacVehiculos.Columns.Count)
+            {
+                MessageBox.Show("El número de anchos de columna no coincide con el número de columnas en el DataGridView.");
+                return;
+            }
+
+            // Establece el ancho deseado para cada columna
+            for (int i = 0; i < dGVPlacVehiculos.Columns.Count; i++)
+            {
+                dGVPlacVehiculos.Columns[i].Width = columnWidths[i];
+            }
         }
     }
 }
