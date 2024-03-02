@@ -166,11 +166,12 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
             try
             {
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla}", conexion);
+                // Crear el comando SQL para buscar el empleado por ID
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} WHERE ID_EMPLEADO = @IdEmpleado", conexion);
 
                 // Asignar valor al parámetro
-                cmd.Parameters.AddWithValue("@IdTaller", idTaller);
                 cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+
 
                 // Ejecutar la consulta y leer los resultados
                 using (SqlDataReader reader = cmd.ExecuteReader())
