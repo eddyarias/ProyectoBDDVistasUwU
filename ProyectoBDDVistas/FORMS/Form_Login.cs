@@ -1,3 +1,4 @@
+using Microsoft.Data.SqlClient;
 using ProyectoBDDVistas.METODOS_SQL_CONEXION;
 
 namespace ProyectoBDDVistas
@@ -14,16 +15,21 @@ namespace ProyectoBDDVistas
             /*=================provicional==============*/
             String usuario = "sa";
             String contraseña = "P@ssw0rd";
-            Conexion conexion = new Conexion("DESKTOP-85782JV", "TallerReparacionG", usuario, contraseña);
+            //Conexion conexion = new Conexion("DESKTOP-85782JV", "TallerReparacionG", usuario, contraseña);
+            //Mil
+            Conexion conexion = new Conexion("LAPTOP-VF0SV152", "TallerReparacionG", usuario, contraseña);
             bool continuar = conexion.AbrirConexion(true);
+
 
             if (continuar)
             {
-
                 FORMS.Form_Menu form_menu = new FORMS.Form_Menu(conexion.ObtenerConexion());
                 form_menu.Show();
                 this.Hide();
             }
+
+
+
             /*==============================*/
 
         }
@@ -39,10 +45,10 @@ namespace ProyectoBDDVistas
             //Conexion conexion = new Conexion("SERVIDORQUITO","TallerReparacionQ",usuario,contraseña);
 
             //Milton TallerReparacionG
-            //Conexion conexion = new Conexion("SERVIDORGUAYAQUIL","TallerReparacionG",usuario,contraseña);
+            Conexion conexion = new Conexion("LAPTOP-VF0SV152", "TallerReparacionG",usuario,contraseña);
 
             //Eddy 
-            Conexion conexion = new Conexion("DESKTOP-85782JV","TallerReparacionG",usuario,contraseña);
+            //Conexion conexion = new Conexion("DESKTOP-85782JV","TallerReparacionG",usuario,contraseña);
 
 
             bool continuar = conexion.AbrirConexion(true);

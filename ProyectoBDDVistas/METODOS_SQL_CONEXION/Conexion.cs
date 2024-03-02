@@ -1,4 +1,5 @@
 ﻿using System;
+//using System.Windows.Forms; // Agregué esta línea para usar MessageBox
 using Microsoft.Data.SqlClient;
 
 namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
@@ -23,6 +24,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 if (conexion.State == System.Data.ConnectionState.Closed)
                 {
                     conexion.Open();
+
                     if (mostrarMensajeExito)
                     {
                        /*Descomentar cuando el proyecto este funcionando al 100% */

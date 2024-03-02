@@ -25,7 +25,7 @@ namespace ProyectoBDDVistas.FORMS
         public Form_Menu(SqlConnection conexion)
         {
             InitializeComponent();
-            Conexion= conexion;
+            Conexion = conexion;
 
             /*Inicializar formularios*/
             form_Cliente = new Form_Cliente(Conexion);
