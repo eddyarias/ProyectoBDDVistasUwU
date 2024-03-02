@@ -15,7 +15,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tabla = "VISTA_EMPLEADO";
         public string tabla2 = "VISTA_NUMEROTELEFONO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
 
         public void DesplegarDatosEmpleados(SqlConnection conexion, DataGridView dataGridView)
         {

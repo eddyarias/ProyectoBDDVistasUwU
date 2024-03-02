@@ -13,7 +13,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     {
         public string tabla = "VISTA_NUMEROTELEFONO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
 
         public void DesplegarDatosNumeroTelefono(SqlConnection conexion, DataGridView dataGridView)
         {
@@ -50,7 +50,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
 
                 // Crear el comando SQL para la inserción de datos
-                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_EMPLEADO, NUMERO_TELEFONO, ID_TALLER) " +
+                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_EMPLEADO, NUMEROTELEFONO, ID_TALLER) " +
                                                 "VALUES (@IdEmpleado, @NumeroTelefono, @IdTaller)", conexion);
 
                 // Asignar valores a los parámetros utilizando el objeto NumeroTelefono
