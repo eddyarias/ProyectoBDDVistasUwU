@@ -50,7 +50,6 @@
             label2 = new Label();
             txtBidEmpleadoActEli = new TextBox();
             label3 = new Label();
-            button1 = new Button();
             label4 = new Label();
             txtBnomEmpleadoActEli = new TextBox();
             label6 = new Label();
@@ -240,7 +239,6 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(txtBidEmpleadoActEli);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(button1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(txtBnomEmpleadoActEli);
             panel1.Location = new Point(8, 13);
@@ -250,12 +248,13 @@
             // 
             // button2
             // 
-            button2.Location = new Point(363, 219);
+            button2.Location = new Point(231, 215);
             button2.Name = "button2";
             button2.Size = new Size(147, 47);
             button2.TabIndex = 130;
             button2.Text = "Eliminar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label7
             // 
@@ -271,6 +270,7 @@
             txtBnumTelEmpleadoActEli.Location = new Point(231, 137);
             txtBnumTelEmpleadoActEli.Margin = new Padding(3, 4, 3, 4);
             txtBnumTelEmpleadoActEli.Name = "txtBnumTelEmpleadoActEli";
+            txtBnumTelEmpleadoActEli.ReadOnly = true;
             txtBnumTelEmpleadoActEli.Size = new Size(213, 27);
             txtBnumTelEmpleadoActEli.TabIndex = 128;
             // 
@@ -300,15 +300,6 @@
             label3.Size = new Size(139, 20);
             label3.TabIndex = 122;
             label3.Text = "Nombre empleado:";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(145, 219);
-            button1.Name = "button1";
-            button1.Size = new Size(147, 47);
-            button1.TabIndex = 117;
-            button1.Text = "Actualizar";
-            button1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -398,7 +389,6 @@
         private Label label2;
         private TextBox txtBidEmpleadoActEli;
         private Label label3;
-        private Button button1;
         private Label label4;
         private TextBox txtBnomEmpleadoActEli;
         private Label label10;

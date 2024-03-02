@@ -96,7 +96,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             }
         }*/
 
-        public void EliminarNumeroTelefono(SqlConnection conexion, string idEmpleado, string idTaller)
+        public void EliminarNumeroTelefono(SqlConnection conexion, NumeroTelefono numeroTelefono)
         {
             try
             {
@@ -111,12 +111,12 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 if (result == DialogResult.Yes)
                 {
                     // Crear el comando SQL para la eliminación de datos
-                    SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_EMPLEADO = @IdEmpleado AND ID_TALLER = @IdTaller", conexion);
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_EMPLEADO = @IdEmpleado AND ID_TALLER = @IdTaller AND NUMEROTELEFONO = @NumTelefono", conexion);
 
                     // Asignar valores a los parámetros utilizando el ID_EMPLEADO
-                    cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
-                    cmd.Parameters.AddWithValue("@IdTaller", idTaller);
-
+                    cmd.Parameters.AddWithValue("@IdEmpleado", numeroTelefono.IdEmpleado);
+                    cmd.Parameters.AddWithValue("@IdTaller", numeroTelefono.IdTaller); 
+                    cmd.Parameters.AddWithValue("@NumTelefono", numeroTelefono.NumeroTelefonico);
                     // Ejecutar la consulta
                     cmd.ExecuteNonQuery();
 

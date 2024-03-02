@@ -30,11 +30,19 @@ namespace ProyectoBDDVistas.FORMS
         NumeroTelefono numeroTelefono;
         private void bttAgregarRegistrar_Click(object sender, EventArgs e)
         {
-            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoRegistrar.Text, txtBidEmpleadoRegistrar.Text, msnt.idTaller);
+            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoRegistrar.Text, 
+                txtBidEmpleadoRegistrar.Text, msnt.idTaller);
             msnt.AgregarNumeroTelefono(Conexion, numeroTelefono);
 
             //actualizar tabla numeroTelefono
             msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoActEli.Text, 
+                txtBidEmpleadoActEli.Text, msnt.idTaller);
+            msnt.EliminarNumeroTelefono(Conexion, numeroTelefono);
         }
     }
 }
