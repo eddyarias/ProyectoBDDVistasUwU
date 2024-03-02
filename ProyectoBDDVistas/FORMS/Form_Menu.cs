@@ -53,6 +53,10 @@ namespace ProyectoBDDVistas.FORMS
             form_Factura = (Form_Factura)PrepararForm(form_Factura);
             form_NumeroTelefono = (Form_NumeroTelefono)PrepararForm(form_NumeroTelefono);
             form_ClienteInformacion = (Form_ClienteInformacion)PrepararForm(form_ClienteInformacion);
+            parametros parametros = new parametros();
+            if (parametros.idTaller == "TALL002") {
+                button2.Visible = false;
+            }
         }
 
         private void OcultarFormularios()

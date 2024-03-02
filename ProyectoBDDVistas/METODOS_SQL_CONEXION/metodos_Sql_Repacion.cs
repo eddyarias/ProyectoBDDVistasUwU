@@ -28,7 +28,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                     conexion.Open();
                 }
                 // Crear un adaptador SQL para cargar los datos
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = {idTaller}", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = '{idTaller}'", conexion);
                 // Crear un DataTable para contener los datos
                 DataTable dataTable = new DataTable();
                 // Llenar el DataTable con los datos del adaptador

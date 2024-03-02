@@ -24,7 +24,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
 
                 // Crear un adaptador SQL para cargar los datos
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = {idTaller}", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = '{idTaller}'", conexion);
                 // Crear un DataTable para contener los datos
                 DataTable dataTable = new DataTable();
                 // Llenar el DataTable con los datos del adaptador
@@ -105,12 +105,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
         }
 
-        /// <summary>
-        /// Es necesario recibir el idEmpleado e idTaller??
-        /// </summary>
-        /// <param name="conexion"></param>
-        /// <param name="idEmpleado"></param>
-        /// <param name="idTaller"></param>
         public void EliminarDatosEmpleado(SqlConnection conexion, string idEmpleado)
         {
             

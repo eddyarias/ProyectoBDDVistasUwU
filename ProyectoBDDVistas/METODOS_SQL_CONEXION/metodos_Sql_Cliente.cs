@@ -22,7 +22,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             try
             {
                 // Crear un adaptador SQL para cargar los datos
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = {idTaller}", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = '{idTaller}'", conexion);
                 //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla}", conexion);
 
                 // Crear un DataTable para contener los datos
