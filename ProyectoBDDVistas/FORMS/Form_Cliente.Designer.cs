@@ -404,8 +404,9 @@
             DGWClientes.Location = new Point(543, 126);
             DGWClientes.Name = "DGWClientes";
             DGWClientes.ReadOnly = true;
+            DGWClientes.RowHeadersVisible = false;
             DGWClientes.RowHeadersWidth = 51;
-            DGWClientes.Size = new Size(1022, 429);
+            DGWClientes.Size = new Size(1028, 429);
             DGWClientes.TabIndex = 87;
             DGWClientes.CellClick += DGWClientes_CellClick;
             DGWClientes.DataBindingComplete += DGWClientes_DataBindingComplete;

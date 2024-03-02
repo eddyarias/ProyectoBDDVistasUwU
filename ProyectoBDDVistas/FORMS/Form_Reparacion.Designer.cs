@@ -148,7 +148,7 @@
             DGWReparacion.RowHeadersVisible = false;
             DGWReparacion.RowHeadersWidth = 51;
             DGWReparacion.RowTemplate.Height = 24;
-            DGWReparacion.Size = new Size(1641, 249);
+            DGWReparacion.Size = new Size(1641, 329);
             DGWReparacion.TabIndex = 72;
             DGWReparacion.CellClick += DGWReparacion_CellClick;
             DGWReparacion.DataBindingComplete += DGWReparacion_DataBindingComplete;
@@ -582,6 +582,7 @@
             dGWVehiculoRegistrar.MultiSelect = false;
             dGWVehiculoRegistrar.Name = "dGWVehiculoRegistrar";
             dGWVehiculoRegistrar.ReadOnly = true;
+            dGWVehiculoRegistrar.RowHeadersVisible = false;
             dGWVehiculoRegistrar.RowHeadersWidth = 51;
             dGWVehiculoRegistrar.Size = new Size(475, 122);
             dGWVehiculoRegistrar.TabIndex = 117;
@@ -904,7 +905,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1672, 853);
+            ClientSize = new Size(1672, 933);
             Controls.Add(label20);
             Controls.Add(tabControl1);
             Controls.Add(label9);

@@ -88,9 +88,10 @@
             DGWVEHICULO.Location = new Point(144, 423);
             DGWVEHICULO.Margin = new Padding(3, 4, 3, 4);
             DGWVEHICULO.Name = "DGWVEHICULO";
+            DGWVEHICULO.RowHeadersVisible = false;
             DGWVEHICULO.RowHeadersWidth = 51;
             DGWVEHICULO.RowTemplate.Height = 24;
-            DGWVEHICULO.Size = new Size(1384, 341);
+            DGWVEHICULO.Size = new Size(1351, 341);
             DGWVEHICULO.TabIndex = 43;
             DGWVEHICULO.CellClick += DGWVEHICULO_CellClick;
             DGWVEHICULO.DataBindingComplete += DGWVEHICULO_DataBindingComplete;
@@ -112,6 +113,7 @@
             DGWClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGWClientes.Location = new Point(678, 58);
             DGWClientes.Name = "DGWClientes";
+            DGWClientes.RowHeadersVisible = false;
             DGWClientes.RowHeadersWidth = 51;
             DGWClientes.Size = new Size(907, 293);
             DGWClientes.TabIndex = 47;

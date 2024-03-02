@@ -63,14 +63,30 @@ namespace ProyectoBDDVistas.FORMS
 
         private void DGWReparacion_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            DGWReparacion.AutoResizeColumns();
+            /*DGWReparacion.AutoResizeColumns();
             DGWReparacion.AutoResizeRows();
 
             // Ajustar el tamaño del DataGridView al de sus columnas y filas
             int width = DGWReparacion.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + DGWReparacion.RowHeadersWidth + 3;
             int height = DGWReparacion.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + DGWReparacion.ColumnHeadersHeight + 3;
 
-            DGWReparacion.ClientSize = new Size(width, height);
+            DGWReparacion.ClientSize = new Size(width, height);*/
+            // Define el ancho deseado para cada columna
+            int[] columnWidths = { 200, 200, 175, 250, 250, 250, 250 }; // Ejemplo: 4 columnas con diferentes anchos
+
+            // Asegúrate de que el número de elementos en columnWidths coincida con el número de columnas en el DataGridView
+            if (columnWidths.Length != DGWReparacion.Columns.Count)
+            {
+                MessageBox.Show("El número de anchos de columna no coincide con el número de columnas en el DataGridView.");
+                return;
+            }
+
+            // Establece el ancho deseado para cada columna
+            for (int i = 0; i < DGWReparacion.Columns.Count; i++)
+            {
+                DGWReparacion.Columns[i].Width = columnWidths[i];
+            }
+
         }
 
         private void bttAgregarRegistrar_Click(object sender, EventArgs e)
@@ -148,6 +164,7 @@ namespace ProyectoBDDVistas.FORMS
                 idReparacionActEli = DGWReparacion.Rows[e.RowIndex].Cells[1].Value.ToString();
             }
             msr.ObtenerInformacionReparacion(Conexion, idReparacionActEli, camposRellenarActualizarEliminar, cBTipoRepaAct, dTPFecRepAct, rTBObsRepAct);
+            tabControl1.SelectedIndex = 1;
         }
 
         private void bttAct_Click(object sender, EventArgs e)
@@ -193,7 +210,7 @@ namespace ProyectoBDDVistas.FORMS
         public void desplegarClienteSeleccionadoRegistroAct()
         {
             txtBCedClienteReparacionAct.Text = clienteSeleccionadoRegistro.NumCedulaCliente.Trim();
-            txtBCedClienteReparacionAct.Text = clienteSeleccionadoRegistro.NombreCliente.Trim();
+            txtBNomClienteReparacionAct.Text = clienteSeleccionadoRegistro.NombreCliente.Trim();
             txtBApeClienteReparacionAct.Text = clienteSeleccionadoRegistro.ApellidoCliente.Trim();
             txtBDirClienteReparacionAct.Text = clienteSeleccionadoRegistro.DireccionCliente.Trim();
 

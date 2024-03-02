@@ -53,6 +53,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
+                // Mostrar mensaje de éxito
+                MessageBox.Show("Datos insertados con éxito");
             }
             catch (Exception ex)
             {

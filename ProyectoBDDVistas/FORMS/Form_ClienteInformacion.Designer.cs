@@ -36,9 +36,12 @@
             // dtgvInfoCliente
             // 
             dtgvInfoCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvInfoCliente.Location = new Point(223, 64);
+            dtgvInfoCliente.Location = new Point(599, 68);
+            dtgvInfoCliente.Margin = new Padding(3, 4, 3, 4);
             dtgvInfoCliente.Name = "dtgvInfoCliente";
-            dtgvInfoCliente.Size = new Size(497, 273);
+            dtgvInfoCliente.RowHeadersVisible = false;
+            dtgvInfoCliente.RowHeadersWidth = 51;
+            dtgvInfoCliente.Size = new Size(426, 691);
             dtgvInfoCliente.TabIndex = 0;
             // 
             // label1
@@ -46,19 +49,21 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(368, 22);
+            label1.Location = new Point(670, 9);
             label1.Name = "label1";
-            label1.Size = new Size(229, 30);
+            label1.Size = new Size(293, 37);
             label1.TabIndex = 1;
             label1.Text = "Información del Cliente";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form_ClienteInformacion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1616, 806);
             Controls.Add(label1);
             Controls.Add(dtgvInfoCliente);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form_ClienteInformacion";
             Text = "Form_ClienteInformacion";
             ((System.ComponentModel.ISupportInitialize)dtgvInfoCliente).EndInit();

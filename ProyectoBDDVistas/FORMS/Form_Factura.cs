@@ -126,7 +126,12 @@ namespace ProyectoBDDVistas.FORMS
                 camposRellenarActualizarEliminar, dTPFecEmFechaFacActEli,
                 dGWReparacionFactura);
 
+            Decimal iva = decimal.Parse(txtBSubFacActEli.Text)*0.12m;
+            Decimal total = iva + Decimal.Parse(txtBSubFacActEli.Text);
+            txtBivaActEli.Text = iva + "";
+            txtBtotalActEli.Text = total + "";
             facturaTabControl.SelectedIndex = 1;
+
 
         }
 

@@ -63,7 +63,10 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
-                 }
+
+                // Mostrar mensaje de éxito
+                MessageBox.Show("Datos insertados con éxito");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al insertar datos: " + ex.Message);
@@ -89,8 +92,10 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
+                // Mostrar mensaje de éxito
+                MessageBox.Show("Datos actualizados con éxito");
 
-               
+
             }
             catch (Exception ex)
             {

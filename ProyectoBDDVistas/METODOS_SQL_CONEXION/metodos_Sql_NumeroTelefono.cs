@@ -53,7 +53,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Número de teléfono insertado correctamente" );
+                MessageBox.Show("Número de teléfono agregado correctamente" );
             }
             catch (Exception ex)
             {
@@ -108,9 +108,17 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                     cmd.Parameters.AddWithValue("@IdTaller", numeroTelefono.IdTaller); 
                     cmd.Parameters.AddWithValue("@NumTelefono", numeroTelefono.NumeroTelefonico);
                     // Ejecutar la consulta
-                    cmd.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Número de teléfono eliminado correctamente.");
+                    // Mostrar mensaje de confirmación después de la eliminación
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Número de telefono con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el número de telefono para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             catch (Exception ex)

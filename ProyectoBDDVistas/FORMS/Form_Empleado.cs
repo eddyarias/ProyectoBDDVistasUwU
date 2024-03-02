@@ -40,6 +40,7 @@ namespace ProyectoBDDVistas.FORMS
               int height = DGWEmpleado.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + DGWEmpleado.ColumnHeadersHeight + 3;
 
               DGWEmpleado.ClientSize = new Size(width, height);*/
+
         }
 
         private void BAgregar_Click(object sender, EventArgs e)
