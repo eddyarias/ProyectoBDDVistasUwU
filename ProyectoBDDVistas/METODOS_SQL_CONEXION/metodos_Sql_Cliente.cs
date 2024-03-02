@@ -20,11 +20,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                // Asegúrate de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
                 // Crear un adaptador SQL para cargar los datos
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM "+ tabla + "", conexion);
                 // Crear un DataTable para contener los datos
@@ -45,10 +40,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para la inserción de datos
                 SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (NOMBRE_CLIENTE, APELLIDO_CLIENTE, ID_TALLER, NUMCEDULA_CLIENTE, DIRECCION_CLIENTE) VALUES (@NombreCliente, @ApellidoCliente, @IdTaller, @NumCedulaCliente, @DireccionCliente)", conexion);
@@ -73,11 +64,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-
                 // Crear el comando SQL para la actualización de datos
                 SqlCommand cmd = new SqlCommand($"UPDATE {tabla} SET NUMCEDULA_CLIENTE = @NumCedulaCliente, DIRECCION_CLIENTE = @DireccionCliente WHERE NOMBRE_CLIENTE = @NombreCliente AND APELLIDO_CLIENTE = @ApellidoCliente AND ID_TALLER = @IdTaller", conexion);
 
@@ -109,10 +95,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 if (MessageBox.Show("¿Seguro que deseas eliminar al cliente "+ nombreCliente.Trim() + " "+ apellidoCliente.Trim() + "?", "Confirmación de Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (conexion.State != ConnectionState.Open)
-                    {
-                        conexion.Open();
-                    }
 
                     // Crear el comando SQL para la eliminación de datos
                     SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE NOMBRE_CLIENTE = @NombreCliente AND APELLIDO_CLIENTE = @ApellidoCliente", conexion);
@@ -147,11 +129,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-
                 // Crear el comando SQL para obtener datos del cliente por nombre y apellido
                 SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} WHERE NOMBRE_CLIENTE = @NombreCliente AND APELLIDO_CLIENTE = @ApellidoCliente", conexion);
 

@@ -22,11 +22,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                // Asegúrate de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
                 // Crear un adaptador SQL para cargar los datos
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM " + tabla + "", conexion);
                 // Crear un DataTable para contener los datos
@@ -47,10 +42,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para la inserción de datos
                 SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_FACTURA, NUMMATRICULA_VEHICULO, ID_REPARACION, ID_TALLER, FECHAEMISION_FACTURA, SUBTOTAL_FACTURA, IVA_FACTURA, TOTAL_FACTURA) " +
@@ -83,10 +74,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para obtener la información de la factura
                 SqlCommand cmd = new SqlCommand($"SELECT C.NOMBRE_CLIENTE, C.APELLIDO_CLIENTE, F.ID_FACTURA, F.NUMMATRICULA_VEHICULO, F.ID_REPARACION, R.PRECIO_REPARACION, F.FECHAEMISION_FACTURA " +
@@ -139,10 +126,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para la actualización de datos
                 SqlCommand cmd = new SqlCommand($"UPDATE {tabla} SET " +
@@ -191,10 +174,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 if (result == DialogResult.Yes)
                 {
-                    if (conexion.State != ConnectionState.Open)
-                    {
-                        conexion.Open();
-                    }
 
                     // Crear el comando SQL para la eliminación de datos
                     SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_FACTURA = @IdFactura", conexion);
@@ -218,13 +197,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar datos de la factura: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
         public void LlenarCamposDesdeDataGridView(DataGridView dataGridView, List<TextBox> textBoxes, DateTimePicker dateTimePicker)

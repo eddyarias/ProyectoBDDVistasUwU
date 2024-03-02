@@ -114,11 +114,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-               
+
 
                 // Confirmación antes de eliminar
                 DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este empleado con id: "+idEmpleado+"?", "Confirmación de Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -176,6 +172,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
 
                 SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} WHERE ID_EMPLEADO = @IdEmpleado", conexion);
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla}", conexion);
 
                 // Asignar valor al parámetro
                 cmd.Parameters.AddWithValue("@IdTaller", idTaller);

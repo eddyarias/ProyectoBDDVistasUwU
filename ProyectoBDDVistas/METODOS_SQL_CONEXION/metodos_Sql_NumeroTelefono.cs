@@ -21,11 +21,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                // Asegúrate de que la conexión esté abierta
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
                 // Crear un adaptador SQL para cargar los datos
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM " + tabla + "", conexion);
                 // Crear un DataTable para contener los datos
@@ -46,11 +41,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-
                 // Crear el comando SQL para la inserción de datos
                 SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_EMPLEADO, NUMEROTELEFONO, ID_TALLER) " +
                                                 "VALUES (@IdEmpleado, @NumeroTelefono, @IdTaller)", conexion);
@@ -62,6 +52,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Número de teléfono insertado correctamente" );
             }
             catch (Exception ex)
             {
@@ -102,13 +94,9 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Antes de eliminar, mostrar un mensaje de confirmación
-                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar este número de teléfono?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el número de teléfono "+numeroTelefono+"?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -135,16 +123,12 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para obtener la información del empleado y su número de teléfono
                 SqlCommand cmd = new SqlCommand($"SELECT E.ID_EMPLEADO, E.NOMBRE_EMPLEADO, E.APELLIDO_EMPLEADO, N.NUMEROTELEFONO " +
                                                 $"FROM {tablaEmpleado} E " +
                                                 $"JOIN {tabla} N ON E.ID_EMPLEADO = N.ID_EMPLEADO " +
-                                                $"WHERE E.ID_EMPLEADO = @IdEmpleado AND N.ID_TALLER ={idTaller}", conexion);
+                                                $"WHERE E.ID_EMPLEADO = @IdEmpleado", conexion);/* AND N.ID_TALLER ={idTaller}*/
 
                 // Asignar valores a los parámetros
                 cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
@@ -157,7 +141,9 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                     {
                         // Asignar la información a los TextBox
                         textBoxInfoEmpleado.Text = $"{reader["ID_EMPLEADO"]}";
-                        textBoxNombreApellido.Text = $"{reader["NOMBRE_EMPLEADO"]} {reader["APELLIDO_EMPLEADO"]}";
+                        string nombre = $"{reader["NOMBRE_EMPLEADO"]}";
+                        string apellido = $"{ reader["APELLIDO_EMPLEADO"] }";
+                        textBoxNombreApellido.Text = nombre.Trim()+" "+apellido.Trim();
                         textBoxNumTelefono.Text = $"{reader["NUMEROTELEFONO"]}";
                     }
                 }
@@ -165,13 +151,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al obtener información del empleado: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 
