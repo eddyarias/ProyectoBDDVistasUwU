@@ -1,5 +1,5 @@
 ﻿using System;
-//using System.Windows.Forms; // Agregué esta línea para usar MessageBox
+using System.Windows.Forms; // Agregué esta línea para usar MessageBox
 using Microsoft.Data.SqlClient;
 
 namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
@@ -24,6 +24,16 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 if (conexion.State == System.Data.ConnectionState.Closed)
                 {
                     conexion.Open();
+
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand("SET XACT_ABORT ON", conexion);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al configurar XACT_ABORT en ON: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                     if (mostrarMensajeExito)
                     {
