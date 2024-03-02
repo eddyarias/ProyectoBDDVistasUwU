@@ -40,6 +40,13 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 // Manejar cualquier excepción aquí
                 MessageBox.Show("Error al cargar datos: " + ex.Message);
             }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
 
         // Método para insertar una nueva reparación
@@ -47,10 +54,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
 
                 // Crear el comando SQL para la inserción de datos
                 SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (NUMMATRICULA_VEHICULO, ID_REPARACION, ID_TALLER, TIPO_REPARACION, FECHA_REPARACION, OBSERVACIONES_REPARACION, PRECIO_REPARACION) " +
@@ -72,13 +75,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al insertar datos: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
+
         }
 
 
