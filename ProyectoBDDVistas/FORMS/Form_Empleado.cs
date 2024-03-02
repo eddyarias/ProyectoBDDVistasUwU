@@ -75,7 +75,7 @@ namespace ProyectoBDDVistas.FORMS
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 // Obtenemos el valor de la celda en la columna deseada
-                idEmpleadoActEli = DGWEmpleado.Rows[e.RowIndex].Cells[0].Value.ToString();
+               idEmpleadoActEli = DGWEmpleado.Rows[e.RowIndex].Cells[0].Value?.ToString();
 
             }
 
@@ -89,17 +89,17 @@ namespace ProyectoBDDVistas.FORMS
         {
             if (EmpleadoSeccionadoActual != null)
             {
-                txtBidEmpleadoAct.Text = EmpleadoSeccionadoActual.IdEmpleado.Trim();
-                txtBcedEmpleadoAct.Text = EmpleadoSeccionadoActual.NumCedulaEmpleado.Trim();
-                txtBnomEmpleadoAct.Text = EmpleadoSeccionadoActual.NombreEmpleado.Trim();
-                txtBapeEmpleadoAct.Text = EmpleadoSeccionadoActual.ApellidoEmpleado.Trim();
+                txtBidEmpleadoAct.Text = EmpleadoSeccionadoActual.IdEmpleado?.Trim();
+                txtBcedEmpleadoAct.Text = EmpleadoSeccionadoActual.NumCedulaEmpleado?.Trim();
+                txtBnomEmpleadoAct.Text = EmpleadoSeccionadoActual.NombreEmpleado?.Trim();
+                txtBapeEmpleadoAct.Text = EmpleadoSeccionadoActual.ApellidoEmpleado?.Trim();
                 txtBsalEmpleadoAct.Text = EmpleadoSeccionadoActual.SalarioEmpleado + "".Trim();
                 txtBfecEmpleadoAct.Text = EmpleadoSeccionadoActual.FechaInicioContratoEmpleado + "".Trim();
 
-                txtBidEmpleadoEli.Text = EmpleadoSeccionadoActual.IdEmpleado.Trim();
-                txtBcedEmpleadoEli.Text = EmpleadoSeccionadoActual.NumCedulaEmpleado.Trim();
-                txtBnomEmpleadoEli.Text = EmpleadoSeccionadoActual.NombreEmpleado.Trim();
-                txtBapeEmpleadoEli.Text = EmpleadoSeccionadoActual.ApellidoEmpleado.Trim();
+                txtBidEmpleadoEli.Text = EmpleadoSeccionadoActual.IdEmpleado?.Trim();
+                txtBcedEmpleadoEli.Text = EmpleadoSeccionadoActual.NumCedulaEmpleado?.Trim();
+                txtBnomEmpleadoEli.Text = EmpleadoSeccionadoActual.NombreEmpleado?.Trim();
+                txtBapeEmpleadoEli.Text = EmpleadoSeccionadoActual.ApellidoEmpleado?.Trim();
                 txtBsalEmpleadoEli.Text = EmpleadoSeccionadoActual.SalarioEmpleado + "".Trim();
                 txtBfecEmpleadoEli.Text = EmpleadoSeccionadoActual.FechaInicioContratoEmpleado + "".Trim();
             }

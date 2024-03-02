@@ -16,7 +16,7 @@ namespace ProyectoBDDVistas
             /*=================provicional==============*/
             String usuario = "sa";
             String contraseña = "P@ssw0rd";
-            Conexion conexion = new Conexion("DESKTOP-85782JV", "TallerReparacionG", usuario, contraseña);
+            Conexion conexion = new Conexion("LAPTOP-MQ2NT5FG\\MSSQLSERVERI", "TallerReparacionQ", usuario, contraseña);
             //Mil
             //Conexion conexion = new Conexion("LAPTOP-MQ2NT5FG\\MSSQLSERVERI", "TallerReparacionQ", usuario, contraseña);
             bool continuar = conexion.AbrirConexion(true);
