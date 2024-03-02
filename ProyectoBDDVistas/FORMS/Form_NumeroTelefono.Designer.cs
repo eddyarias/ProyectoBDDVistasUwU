@@ -91,6 +91,7 @@
             dGWEmpleado.RowTemplate.Height = 24;
             dGWEmpleado.Size = new Size(1029, 310);
             dGWEmpleado.TabIndex = 86;
+            dGWEmpleado.CellClick += dGWEmpleado_CellClick;
             // 
             // dGWNumeroTelefono
             // 
@@ -109,6 +110,7 @@
             dGWNumeroTelefono.RowTemplate.Height = 24;
             dGWNumeroTelefono.Size = new Size(514, 634);
             dGWNumeroTelefono.TabIndex = 87;
+            dGWNumeroTelefono.CellClick += dGWNumeroTelefono_CellClick;
             // 
             // facturaTabControl
             // 

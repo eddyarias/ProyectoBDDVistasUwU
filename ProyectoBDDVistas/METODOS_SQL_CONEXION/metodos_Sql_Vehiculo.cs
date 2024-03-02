@@ -13,7 +13,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     {
         public string tabla = "VISTA_VEHICULO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
 
         public void DesplegarDatosVehiculos(SqlConnection conexion, DataGridView dataGridView)
         {

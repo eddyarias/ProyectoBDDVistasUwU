@@ -37,7 +37,8 @@ namespace ProyectoBDDVistas.FORMS
             form_Vehiculo = new Form_Vehiculo(Conexion);
             form_Factura = new Form_Factura(Conexion);
             form_NumeroTelefono = new Form_NumeroTelefono(Conexion);
-
+            form_PlacaVehiculo = new Form_PlacaVehiculo();
+            form_ClienteInformacion = new Form_ClienteInformacion();
             /*Este forulario es el contenedor*/
             this.IsMdiContainer = true;
 

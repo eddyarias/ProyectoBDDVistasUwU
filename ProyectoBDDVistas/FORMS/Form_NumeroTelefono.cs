@@ -24,13 +24,14 @@ namespace ProyectoBDDVistas.FORMS
             Conexion = conexion;
             msnt = new metodos_Sql_NumeroTelefono();
             msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+            mse = new metodos_Sql_Empleado();
             mse.DesplegarDatosEmpleados(Conexion, dGWEmpleado);
 
         }
         NumeroTelefono numeroTelefono;
         private void bttAgregarRegistrar_Click(object sender, EventArgs e)
         {
-            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoRegistrar.Text, 
+            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoRegistrar.Text,
                 txtBidEmpleadoRegistrar.Text, msnt.idTaller);
             msnt.AgregarNumeroTelefono(Conexion, numeroTelefono);
 
@@ -40,9 +41,53 @@ namespace ProyectoBDDVistas.FORMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoActEli.Text, 
+            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoActEli.Text,
                 txtBidEmpleadoActEli.Text, msnt.idTaller);
             msnt.EliminarNumeroTelefono(Conexion, numeroTelefono);
+
+            //actualizar tabla numeroTelefono
+            msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+        }
+        public string idEmpleado;
+        private void dGWEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                // Obtenemos el valor de la celda en la columna deseada
+                idEmpleado = dGWEmpleado.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            }
+
+            Empleado empleadoSeleccionado = mse.BuscarEmpleadoPorId(Conexion, idEmpleado);
+
+            if (facturaTabControl.SelectedIndex == 0)
+            {
+                // txtBnumTelEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
+                txtBidEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
+                txtBnombEmpleadoRegistrar.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+
+            }
+            else {
+                if (facturaTabControl.SelectedIndex == 1) {
+                    txtBidEmpleadoActEli.Text = empleadoSeleccionado.IdEmpleado;
+                    txtBnomEmpleadoActEli.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+
+                }
+            
+            }
+            
+
+        }
+
+        public string idEmpleadoAct;
+        private void dGWNumeroTelefono_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                // Obtenemos el valor de la celda en la columna deseada
+                idEmpleadoAct = dGWNumeroTelefono.Rows[e.RowIndex].Cells[0].Value.ToString();
+                msnt.MostrarInformacionEmpleado(Conexion, idEmpleadoAct, txtBidEmpleadoActEli, txtBnomEmpleadoActEli, txtBnumTelEmpleadoRegistrar);
+            }
         }
     }
 }

@@ -12,8 +12,10 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     public class metodos_Sql_NumeroTelefono
     {
         public string tabla = "VISTA_NUMEROTELEFONO";
+        public string tablaEmpleado = "VISTA_EMPLEADO";
+
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
 
         public void DesplegarDatosNumeroTelefono(SqlConnection conexion, DataGridView dataGridView)
         {
@@ -50,7 +52,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
 
                 // Crear el comando SQL para la inserción de datos
-                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_EMPLEADO, NUMERO_TELEFONO, ID_TALLER) " +
+                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (ID_EMPLEADO, NUMEROTELEFONO, ID_TALLER) " +
                                                 "VALUES (@IdEmpleado, @NumeroTelefono, @IdTaller)", conexion);
 
                 // Asignar valores a los parámetros utilizando el objeto NumeroTelefono
@@ -128,6 +130,49 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 MessageBox.Show("Error al eliminar número de teléfono: " + ex.Message);
             }
 
+        }
+        public void MostrarInformacionEmpleado(SqlConnection conexion, string idEmpleado, TextBox textBoxInfoEmpleado, TextBox textBoxNombreApellido, TextBox textBoxNumTelefono)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para obtener la información del empleado y su número de teléfono
+                SqlCommand cmd = new SqlCommand($"SELECT E.ID_EMPLEADO, E.NOMBRE_EMPLEADO, E.APELLIDO_EMPLEADO, N.NUMEROTELEFONO " +
+                                                $"FROM {tablaEmpleado} E " +
+                                                $"JOIN {tabla} N ON E.ID_EMPLEADO = N.ID_EMPLEADO " +
+                                                $"WHERE E.ID_EMPLEADO = @IdEmpleado AND N.ID_TALLER ={idTaller}", conexion);
+
+                // Asignar valores a los parámetros
+                cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+                cmd.Parameters.AddWithValue("@IdTaller", idTaller);
+
+                // Ejecutar la consulta y leer los resultados
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        // Asignar la información a los TextBox
+                        textBoxInfoEmpleado.Text = $"{reader["ID_EMPLEADO"]}";
+                        textBoxNombreApellido.Text = $"{reader["NOMBRE_EMPLEADO"]} {reader["APELLIDO_EMPLEADO"]}";
+                        textBoxNumTelefono.Text = $"{reader["NUMEROTELEFONO"]}";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener información del empleado: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
 
     }
