@@ -59,9 +59,23 @@ namespace ProyectoBDDVistas.FORMS
             }
 
             Empleado empleadoSeleccionado = mse.BuscarEmpleadoPorId(Conexion, idEmpleado);
-            // txtBnumTelEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
-            txtBidEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
-            txtBnombEmpleadoRegistrar.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+
+            if (facturaTabControl.SelectedIndex == 0)
+            {
+                // txtBnumTelEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
+                txtBidEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
+                txtBnombEmpleadoRegistrar.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+
+            }
+            else {
+                if (facturaTabControl.SelectedIndex == 1) {
+                    txtBidEmpleadoActEli.Text = empleadoSeleccionado.IdEmpleado;
+                    txtBnomEmpleadoActEli.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+
+                }
+            
+            }
+            
 
         }
 
@@ -72,7 +86,7 @@ namespace ProyectoBDDVistas.FORMS
             {
                 // Obtenemos el valor de la celda en la columna deseada
                 idEmpleadoAct = dGWNumeroTelefono.Rows[e.RowIndex].Cells[0].Value.ToString();
-
+                msnt.MostrarInformacionEmpleado(Conexion, idEmpleadoAct, txtBidEmpleadoActEli, txtBnomEmpleadoActEli, txtBnumTelEmpleadoRegistrar);
             }
         }
     }
