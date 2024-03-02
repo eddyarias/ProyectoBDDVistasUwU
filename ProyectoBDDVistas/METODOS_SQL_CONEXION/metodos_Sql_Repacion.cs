@@ -16,7 +16,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string talaCliente = "VISTA_CLIENTE";
         public string tablaVehiculo = "VISTA_VEHICULO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
         public void DesplegarDatosReparacion(SqlConnection conexion, DataGridView dataGridView)
         {
             try
@@ -75,7 +75,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al insertar datos: " + ex.Message);
             }
-
         }
 
 
@@ -128,13 +127,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al obtener información de reparación: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
         public void ActualizarReparacion(SqlConnection conexion, Reparacion reparacion)
@@ -168,13 +160,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al actualizar datos: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
         public void EliminarReparacion(SqlConnection conexion, string idReparacion)
@@ -207,13 +192,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar datos: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 
@@ -259,13 +237,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 MessageBox.Show("Error al obtener información de reparación: " + ex.Message);
                 return null; // Return null in case of an error
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
         public void ObtenerReparacionesPorClienteYMostrarEnGridView(SqlConnection conexion, string nombre, string apellido, DataGridView dataGridView)
@@ -305,13 +276,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al obtener información de reparación por cliente: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 

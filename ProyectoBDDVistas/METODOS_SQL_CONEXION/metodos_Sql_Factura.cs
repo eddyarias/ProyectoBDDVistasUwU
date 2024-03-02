@@ -16,7 +16,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tablaCliente = "VISTA_CLIENTE";
         public string tablaReparacion = "VISTA_REPARACION";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
 
         public void DesplegarDatosFacturas(SqlConnection conexion, DataGridView dataGridView)
         {
@@ -76,13 +76,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al insertar datos en la factura: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
 
@@ -140,13 +133,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al obtener información de la factura: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
         public void ActualizarFactura(SqlConnection conexion, Factura factura)
@@ -193,13 +179,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar datos de la factura: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 

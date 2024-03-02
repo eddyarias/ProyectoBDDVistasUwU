@@ -13,7 +13,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     {
         public string tabla = "VISTA_VEHICULO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL001";
+        public string idTaller = "TALL002";
 
         public void DesplegarDatosVehiculos(SqlConnection conexion, DataGridView dataGridView)
         {
@@ -111,14 +111,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 // Manejar cualquier excepción
                 MessageBox.Show("Error al obtener vehículo: " + ex.Message);
             }
-            finally
-            {
-                // Cerrar la conexión
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
 
             return vehiculo;
         }
@@ -127,8 +119,13 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         {
             try
             {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
                 // Crear el comando SQL para la inserción de datos
-                SqlCommand cmd = new SqlCommand($"SET XACT_ABORT ON; INSERT INTO {tabla} (NUMMATRICULA_VEHICULO, ID_TALLER, NOMBRE_CLIENTE, APELLIDO_CLIENTE, FECHACOMPRA_VEHICULO) VALUES (@NumMatriculaVehiculo, @IdTaller, @NombreCliente, @ApellidoCliente, @FechaCompraVehiculo)", conexion);
+                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (NUMMATRICULA_VEHICULO, ID_TALLER, NOMBRE_CLIENTE, APELLIDO_CLIENTE, FECHACOMPRA_VEHICULO) VALUES (@NumMatriculaVehiculo, @IdTaller, @NombreCliente, @ApellidoCliente, @FechaCompraVehiculo)", conexion);
 
                 // Asignar valores a los parámetros utilizando el objeto Vehiculo
                 cmd.Parameters.AddWithValue("@NumMatriculaVehiculo", vehiculo.NumMatriculaVehiculo);
@@ -139,13 +136,17 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Vehículo ingresado correctamente");
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al insertar datos: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
             }
         }
 

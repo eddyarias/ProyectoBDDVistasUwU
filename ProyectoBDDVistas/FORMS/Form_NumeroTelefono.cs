@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using ProyectoBDDVistas.CLASES;
 using ProyectoBDDVistas.METODOS_SQL_CONEXION;
 using System;
 using System.Collections.Generic;
@@ -16,25 +17,77 @@ namespace ProyectoBDDVistas.FORMS
     {
         public SqlConnection Conexion;
         public metodos_Sql_NumeroTelefono msnt;
+        public metodos_Sql_Empleado mse;
         public Form_NumeroTelefono(SqlConnection conexion)
         {
             InitializeComponent();
             Conexion = conexion;
             msnt = new metodos_Sql_NumeroTelefono();
-            msnt.DesplegarDatosNumeroTelefono(conexion, DGWFNumeroTelefono);
+            msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+            mse = new metodos_Sql_Empleado();
+            mse.DesplegarDatosEmpleados(Conexion, dGWEmpleado);
+
+        }
+        NumeroTelefono numeroTelefono;
+        private void bttAgregarRegistrar_Click(object sender, EventArgs e)
+        {
+            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoRegistrar.Text,
+                txtBidEmpleadoRegistrar.Text, msnt.idTaller);
+            msnt.AgregarNumeroTelefono(Conexion, numeroTelefono);
+
+            //actualizar tabla numeroTelefono
+            msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            numeroTelefono = new NumeroTelefono(txtBnumTelEmpleadoActEli.Text,
+                txtBidEmpleadoActEli.Text, msnt.idTaller);
+            msnt.EliminarNumeroTelefono(Conexion, numeroTelefono);
+
+            //actualizar tabla numeroTelefono
+            msnt.DesplegarDatosNumeroTelefono(Conexion, dGWNumeroTelefono);
+        }
+        public string idEmpleado;
+        private void dGWEmpleado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                // Obtenemos el valor de la celda en la columna deseada
+                idEmpleado = dGWEmpleado.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            }
+
+            Empleado empleadoSeleccionado = mse.BuscarEmpleadoPorId(Conexion, idEmpleado);
+
+            if (facturaTabControl.SelectedIndex == 0)
+            {
+                // txtBnumTelEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
+                txtBidEmpleadoRegistrar.Text = empleadoSeleccionado.IdEmpleado;
+                txtBnombEmpleadoRegistrar.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+
+            }
+            else {
+                if (facturaTabControl.SelectedIndex == 1) {
+                    txtBidEmpleadoActEli.Text = empleadoSeleccionado.IdEmpleado;
+                    txtBnomEmpleadoActEli.Text = empleadoSeleccionado.NombreEmpleado.Trim() + " " + empleadoSeleccionado.ApellidoEmpleado.Trim();
+
+                }
+            
+            }
+            
 
         }
 
-        private void DGWFNumeroTelefono_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        public string idEmpleadoAct;
+        private void dGWNumeroTelefono_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DGWFNumeroTelefono.AutoResizeColumns();
-            DGWFNumeroTelefono.AutoResizeRows();
-
-            // Ajustar el tamaño del DataGridView al de sus columnas y filas
-            int width = DGWFNumeroTelefono.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + DGWFNumeroTelefono.RowHeadersWidth + 3;
-            int height = DGWFNumeroTelefono.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + DGWFNumeroTelefono.ColumnHeadersHeight + 3;
-
-            DGWFNumeroTelefono.ClientSize = new Size(width, height);
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                // Obtenemos el valor de la celda en la columna deseada
+                idEmpleadoAct = dGWNumeroTelefono.Rows[e.RowIndex].Cells[0].Value.ToString();
+                msnt.MostrarInformacionEmpleado(Conexion, idEmpleadoAct, txtBidEmpleadoActEli, txtBnomEmpleadoActEli, txtBnumTelEmpleadoRegistrar);
+            }
         }
     }
 }
