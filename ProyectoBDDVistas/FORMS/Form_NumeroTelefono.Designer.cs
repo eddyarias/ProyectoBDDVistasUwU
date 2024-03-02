@@ -53,7 +53,7 @@
             label4 = new Label();
             txtBnomEmpleadoActEli = new TextBox();
             label6 = new Label();
-            label10 = new Label();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)dGWEmpleado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dGWNumeroTelefono).BeginInit();
             numTelTabControl.SuspendLayout();
@@ -82,7 +82,7 @@
             dGWEmpleado.AllowUserToResizeRows = false;
             dGWEmpleado.BackgroundColor = Color.White;
             dGWEmpleado.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dGWEmpleado.Location = new Point(22, 465);
+            dGWEmpleado.Location = new Point(29, 479);
             dGWEmpleado.Margin = new Padding(3, 4, 3, 4);
             dGWEmpleado.Name = "dGWEmpleado";
             dGWEmpleado.ReadOnly = true;
@@ -169,11 +169,11 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(24, 27);
+            label9.Location = new Point(25, 24);
             label9.Name = "label9";
-            label9.Size = new Size(572, 20);
+            label9.Size = new Size(575, 20);
             label9.TabIndex = 125;
-            label9.Text = "Nota: Para agregar un numero de telefono a un empleado primero debe serccionarlo";
+            label9.Text = "Nota: Para agregar un numero de telefono a un empleado primero debe serccionarlo.";
             // 
             // txtBidEmpleadoRegistrar
             // 
@@ -281,9 +281,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(24, 27);
             label2.Name = "label2";
-            label2.Size = new Size(584, 20);
+            label2.Size = new Size(577, 20);
             label2.TabIndex = 125;
-            label2.Text = "Nota: Para actualizar un numero de telefono a un empleado primero debe serccionarlo";
+            label2.Text = "Nota: Para eliminar un numero de telefono a un empleado primero debe serccionarlo.";
             // 
             // txtBidEmpleadoActEli
             // 
@@ -330,21 +330,21 @@
             label6.TabIndex = 132;
             label6.Text = "Lista de numeros telefonicos";
             // 
-            // label10
+            // label11
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(862, 64);
-            label10.Name = "label10";
-            label10.Size = new Size(730, 20);
-            label10.TabIndex = 131;
-            label10.Text = "Nota: Para actualizar un numero de telefono de un empleado primero debe seccionarlo cual desea actualizar";
+            label11.AutoSize = true;
+            label11.Location = new Point(37, 446);
+            label11.Name = "label11";
+            label11.Size = new Size(117, 20);
+            label11.TabIndex = 133;
+            label11.Text = "Lista Empleados";
             // 
             // Form_NumeroTelefono
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1614, 788);
-            Controls.Add(label10);
+            Controls.Add(label11);
             Controls.Add(label6);
             Controls.Add(numTelTabControl);
             Controls.Add(dGWNumeroTelefono);
@@ -393,6 +393,6 @@
         private Label label3;
         private Label label4;
         private TextBox txtBnomEmpleadoActEli;
-        private Label label10;
+        private Label label11;
     }
 }
