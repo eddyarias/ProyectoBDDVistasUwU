@@ -16,7 +16,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tablaCliente = "VISTA_CLIENTE";
         public string tablaReparacion = "VISTA_REPARACION";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL002";
+        public string idTaller = "TALL001";
 
         public void DesplegarDatosFacturas(SqlConnection conexion, DataGridView dataGridView)
         {
@@ -76,13 +76,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al insertar datos en la factura: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
 
@@ -140,13 +133,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al obtener información de la factura: " + ex.Message);
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
         }
 
         public void ActualizarFactura(SqlConnection conexion, Factura factura)
@@ -193,13 +179,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar datos de la factura: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 
@@ -248,6 +227,27 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
             }
         }
+        public void LlenarCamposDesdeDataGridView(DataGridView dataGridView, List<TextBox> textBoxes, DateTimePicker dateTimePicker)
+        {
+            // Verificar si hay alguna fila seleccionada en el DataGridView
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                // Obtener la fila seleccionada
+                DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
 
+                // Asignar los valores de las celdas de la fila seleccionada a los TextBox y DateTimePicker
+                textBoxes[0].Text = selectedRow.Cells["NOMBRE_CLIENTE"].Value.ToString() + " " + selectedRow.Cells["APELLIDO_CLIENTE"].Value.ToString();
+                textBoxes[1].Text = selectedRow.Cells["ID_FACTURA"].Value.ToString();
+                dateTimePicker.Value = Convert.ToDateTime(selectedRow.Cells["FECHAEMISION_FACTURA"].Value);
+                textBoxes[2].Text = selectedRow.Cells["NUMMATRICULA_VEHICULO"].Value.ToString();
+                textBoxes[3].Text = selectedRow.Cells["ID_REPARACION"].Value.ToString();
+                // Puedes seguir añadiendo más campos de acuerdo a tu necesidad
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila en el DataGridView.", "Seleccionar Fila", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
+
