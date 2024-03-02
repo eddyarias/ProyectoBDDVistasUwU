@@ -107,7 +107,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             try
             {
                 // Crear el comando SQL para la inserción de datos
-                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (NUMMATRICULA_VEHICULO, ID_TALLER, NOMBRE_CLIENTE, APELLIDO_CLIENTE, FECHACOMPRA_VEHICULO) VALUES (@NumMatriculaVehiculo, @IdTaller, @NombreCliente, @ApellidoCliente, @FechaCompraVehiculo)", conexion);
+                SqlCommand cmd = new SqlCommand($"INSERT INTO {tabla} (NUMMATRICULA_VEHICULO, ID_TALLER, NOMBRE_CLIENTE, APELLIDO_CLIENTE, FECHACOMPRA_VEHICULO) VALUES (@NumMatriculaVehiculo, @IdTaller, @NombreCliente, @ApellidoCliente, @FechaCompraVehiculo); SELECT CAST(dbo.fn_VehiculoExiste(@NumMatriculaVehiculo) AS INT) AS VehiculoExiste", conexion);
 
                 // Asignar valores a los parámetros utilizando el objeto Vehiculo
                 cmd.Parameters.AddWithValue("@NumMatriculaVehiculo", vehiculo.NumMatriculaVehiculo);
@@ -116,17 +116,27 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 cmd.Parameters.AddWithValue("@ApellidoCliente", vehiculo.ApellidoCliente);
                 cmd.Parameters.AddWithValue("@FechaCompraVehiculo", vehiculo.FechaCompraVehiculo);
 
-                // Ejecutar la consulta
-                cmd.ExecuteNonQuery();
+                // Ejecutar la consulta y obtener el resultado
+                int vehiculoExiste = (int)cmd.ExecuteScalar();
 
-                MessageBox.Show("Vehículo registrado correctamente");
-
+                // Verificar si el vehículo ya existe
+                if (vehiculoExiste == 1)
+                {
+                    MessageBox.Show("El vehículo con esa matrícula ya existe en uno de los nodos Quito o Guayaquil");
+                }
+                else
+                {
+                    MessageBox.Show("Vehículo registrado correctamente");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al insertar datos: " + ex.Message);
             }
         }
+
+
+
 
         public void ActualizarDatosVehiculo(SqlConnection conexion, Vehiculo vehiculo)
         {
