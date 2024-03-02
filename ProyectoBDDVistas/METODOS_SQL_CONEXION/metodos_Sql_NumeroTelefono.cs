@@ -66,5 +66,69 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 MessageBox.Show("Error al insertar número de teléfono: " + ex.Message);
             }
         }
+        /*No se puede actaulizar porque todo es clave primaria*//*
+        public void ActualizarNumeroTelefono(SqlConnection conexion, NumeroTelefono numeroTelefono)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Crear el comando SQL para la actualización de datos
+                SqlCommand cmd = new SqlCommand($"UPDATE {tabla} SET NUMERO_TELEFONO = @NumeroTelefono " +
+                                                "WHERE ID_EMPLEADO = @IdEmpleado AND ID_TALLER = @IdTaller", conexion);
+
+                // Asignar valores a los parámetros utilizando el objeto NumeroTelefono
+                cmd.Parameters.AddWithValue("@NumeroTelefono", numeroTelefono.NumeroTelefonico);
+                cmd.Parameters.AddWithValue("@IdEmpleado", numeroTelefono.IdEmpleado);
+                cmd.Parameters.AddWithValue("@IdTaller", numeroTelefono.IdTaller);
+
+                // Ejecutar la consulta
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Número de teléfono actualizado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar número de teléfono: " + ex.Message);
+            }
+        }*/
+
+        public void EliminarNumeroTelefono(SqlConnection conexion, string idEmpleado, string idTaller)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                // Antes de eliminar, mostrar un mensaje de confirmación
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar este número de teléfono?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Crear el comando SQL para la eliminación de datos
+                    SqlCommand cmd = new SqlCommand($"DELETE FROM {tabla} WHERE ID_EMPLEADO = @IdEmpleado AND ID_TALLER = @IdTaller", conexion);
+
+                    // Asignar valores a los parámetros utilizando el ID_EMPLEADO
+                    cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+                    cmd.Parameters.AddWithValue("@IdTaller", idTaller);
+
+                    // Ejecutar la consulta
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Número de teléfono eliminado correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar número de teléfono: " + ex.Message);
+            }
+
+        }
+
     }
 }
