@@ -94,8 +94,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Transacción realizada correctamente.", "Transacción Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+               
             }
             catch (Exception ex)
             {
@@ -115,7 +114,10 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             
             try
             {
-
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
                
 
                 // Confirmación antes de eliminar
@@ -168,7 +170,10 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
             try
             {
- 
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
 
                 SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla}", conexion);
 
@@ -198,7 +203,6 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 MessageBox.Show("Error al buscar datos del empleado: " + ex.Message);
             }
-
 
             return empleado;
         }
