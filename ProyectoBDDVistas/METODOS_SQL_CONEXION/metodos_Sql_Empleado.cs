@@ -166,13 +166,15 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
             try
             {
+
                 if (conexion.State != ConnectionState.Open)
                 {
                     conexion.Open();
                 }
 
                 SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla} WHERE ID_EMPLEADO = @IdEmpleado", conexion);
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM {tabla}", conexion);
+
+
 
                 // Asignar valor al parámetro
                 cmd.Parameters.AddWithValue("@IdTaller", idTaller);
