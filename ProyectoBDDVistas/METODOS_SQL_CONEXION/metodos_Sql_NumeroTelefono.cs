@@ -62,6 +62,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
 
                 // Ejecutar la consulta
                 cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Número de teléfono insertado correctamente" );
             }
             catch (Exception ex)
             {
@@ -108,7 +110,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 }
 
                 // Antes de eliminar, mostrar un mensaje de confirmación
-                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar este número de teléfono?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el número de teléfono "+numeroTelefono+"?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -144,7 +146,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                 SqlCommand cmd = new SqlCommand($"SELECT E.ID_EMPLEADO, E.NOMBRE_EMPLEADO, E.APELLIDO_EMPLEADO, N.NUMEROTELEFONO " +
                                                 $"FROM {tablaEmpleado} E " +
                                                 $"JOIN {tabla} N ON E.ID_EMPLEADO = N.ID_EMPLEADO " +
-                                                $"WHERE E.ID_EMPLEADO = @IdEmpleado AND N.ID_TALLER ={idTaller}", conexion);
+                                                $"WHERE E.ID_EMPLEADO = @IdEmpleado", conexion);/* AND N.ID_TALLER ={idTaller}*/
 
                 // Asignar valores a los parámetros
                 cmd.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
@@ -157,7 +159,9 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
                     {
                         // Asignar la información a los TextBox
                         textBoxInfoEmpleado.Text = $"{reader["ID_EMPLEADO"]}";
-                        textBoxNombreApellido.Text = $"{reader["NOMBRE_EMPLEADO"]} {reader["APELLIDO_EMPLEADO"]}";
+                        string nombre = $"{reader["NOMBRE_EMPLEADO"]}";
+                        string apellido = $"{ reader["APELLIDO_EMPLEADO"] }";
+                        textBoxNombreApellido.Text = nombre.Trim()+" "+apellido.Trim();
                         textBoxNumTelefono.Text = $"{reader["NUMEROTELEFONO"]}";
                     }
                 }
