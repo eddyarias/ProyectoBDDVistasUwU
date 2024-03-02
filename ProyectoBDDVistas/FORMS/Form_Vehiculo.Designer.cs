@@ -33,16 +33,6 @@
             DGWClientes = new DataGridView();
             label7 = new Label();
             label20 = new Label();
-            eliminarTabPage = new TabPage();
-            txtdTPFechaCompraVehiculoE = new TextBox();
-            label10 = new Label();
-            txtBNMatriculaVehiculoE = new TextBox();
-            txtBNombreVehiculoE = new TextBox();
-            txtBApellidoVehiculoE = new TextBox();
-            label12 = new Label();
-            label15 = new Label();
-            label17 = new Label();
-            BEliminarVehiculo = new Button();
             actualizarTabPage = new TabPage();
             dTPFechaCompraVehiculoA = new DateTimePicker();
             label4 = new Label();
@@ -71,7 +61,6 @@
             dGVPlacVehiculos = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)DGWVEHICULO).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGWClientes).BeginInit();
-            eliminarTabPage.SuspendLayout();
             actualizarTabPage.SuspendLayout();
             registrarTabPage.SuspendLayout();
             clientesTabControl.SuspendLayout();
@@ -137,110 +126,6 @@
             label20.Size = new Size(105, 20);
             label20.TabIndex = 49;
             label20.Text = "Lista Vehículos";
-            // 
-            // eliminarTabPage
-            // 
-            eliminarTabPage.BackColor = Color.White;
-            eliminarTabPage.Controls.Add(txtdTPFechaCompraVehiculoE);
-            eliminarTabPage.Controls.Add(label10);
-            eliminarTabPage.Controls.Add(txtBNMatriculaVehiculoE);
-            eliminarTabPage.Controls.Add(txtBNombreVehiculoE);
-            eliminarTabPage.Controls.Add(txtBApellidoVehiculoE);
-            eliminarTabPage.Controls.Add(label12);
-            eliminarTabPage.Controls.Add(label15);
-            eliminarTabPage.Controls.Add(label17);
-            eliminarTabPage.Controls.Add(BEliminarVehiculo);
-            eliminarTabPage.Location = new Point(4, 29);
-            eliminarTabPage.Name = "eliminarTabPage";
-            eliminarTabPage.Padding = new Padding(3);
-            eliminarTabPage.Size = new Size(516, 293);
-            eliminarTabPage.TabIndex = 3;
-            eliminarTabPage.Text = "Eliminar";
-            // 
-            // txtdTPFechaCompraVehiculoE
-            // 
-            txtdTPFechaCompraVehiculoE.Location = new Point(187, 70);
-            txtdTPFechaCompraVehiculoE.Name = "txtdTPFechaCompraVehiculoE";
-            txtdTPFechaCompraVehiculoE.ReadOnly = true;
-            txtdTPFechaCompraVehiculoE.Size = new Size(210, 27);
-            txtdTPFechaCompraVehiculoE.TabIndex = 77;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(119, 147);
-            label10.Name = "label10";
-            label10.Size = new Size(69, 20);
-            label10.TabIndex = 75;
-            label10.Text = "Apellido:";
-            // 
-            // txtBNMatriculaVehiculoE
-            // 
-            txtBNMatriculaVehiculoE.Location = new Point(185, 27);
-            txtBNMatriculaVehiculoE.Margin = new Padding(3, 4, 3, 4);
-            txtBNMatriculaVehiculoE.Multiline = true;
-            txtBNMatriculaVehiculoE.Name = "txtBNMatriculaVehiculoE";
-            txtBNMatriculaVehiculoE.ReadOnly = true;
-            txtBNMatriculaVehiculoE.Size = new Size(212, 29);
-            txtBNMatriculaVehiculoE.TabIndex = 69;
-            // 
-            // txtBNombreVehiculoE
-            // 
-            txtBNombreVehiculoE.Location = new Point(187, 104);
-            txtBNombreVehiculoE.Margin = new Padding(3, 4, 3, 4);
-            txtBNombreVehiculoE.Multiline = true;
-            txtBNombreVehiculoE.Name = "txtBNombreVehiculoE";
-            txtBNombreVehiculoE.ReadOnly = true;
-            txtBNombreVehiculoE.Size = new Size(212, 29);
-            txtBNombreVehiculoE.TabIndex = 74;
-            // 
-            // txtBApellidoVehiculoE
-            // 
-            txtBApellidoVehiculoE.Location = new Point(187, 134);
-            txtBApellidoVehiculoE.Margin = new Padding(3, 4, 3, 4);
-            txtBApellidoVehiculoE.Multiline = true;
-            txtBApellidoVehiculoE.Name = "txtBApellidoVehiculoE";
-            txtBApellidoVehiculoE.ReadOnly = true;
-            txtBApellidoVehiculoE.Size = new Size(212, 29);
-            txtBApellidoVehiculoE.TabIndex = 76;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(56, 30);
-            label12.Name = "label12";
-            label12.Size = new Size(132, 20);
-            label12.TabIndex = 66;
-            label12.Text = "Número matricula:";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(79, 71);
-            label15.Name = "label15";
-            label15.Size = new Size(107, 20);
-            label15.TabIndex = 67;
-            label15.Text = "Fecha Compra:";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(114, 107);
-            label17.Name = "label17";
-            label17.Size = new Size(67, 20);
-            label17.TabIndex = 73;
-            label17.Text = "Nombre:";
-            // 
-            // BEliminarVehiculo
-            // 
-            BEliminarVehiculo.Location = new Point(185, 205);
-            BEliminarVehiculo.Margin = new Padding(3, 4, 3, 4);
-            BEliminarVehiculo.Name = "BEliminarVehiculo";
-            BEliminarVehiculo.Size = new Size(114, 37);
-            BEliminarVehiculo.TabIndex = 72;
-            BEliminarVehiculo.Text = "Eliminar";
-            BEliminarVehiculo.UseVisualStyleBackColor = true;
-            BEliminarVehiculo.Click += BEliminarVehiculo_Click;
             // 
             // actualizarTabPage
             // 
@@ -461,7 +346,6 @@
             // 
             clientesTabControl.Controls.Add(registrarTabPage);
             clientesTabControl.Controls.Add(actualizarTabPage);
-            clientesTabControl.Controls.Add(eliminarTabPage);
             clientesTabControl.Location = new Point(102, 29);
             clientesTabControl.Name = "clientesTabControl";
             clientesTabControl.SelectedIndex = 0;
@@ -528,8 +412,6 @@
             Load += Form_Vehiculo_Load;
             ((System.ComponentModel.ISupportInitialize)DGWVEHICULO).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGWClientes).EndInit();
-            eliminarTabPage.ResumeLayout(false);
-            eliminarTabPage.PerformLayout();
             actualizarTabPage.ResumeLayout(false);
             actualizarTabPage.PerformLayout();
             registrarTabPage.ResumeLayout(false);
@@ -549,16 +431,6 @@
         private DataGridView DGWClientes;
         private Label label7;
         private Label label20;
-        private TabPage eliminarTabPage;
-        private TextBox txtdTPFechaCompraVehiculoE;
-        private Label label10;
-        private TextBox txtBNMatriculaVehiculoE;
-        private TextBox txtBNombreVehiculoE;
-        private TextBox txtBApellidoVehiculoE;
-        private Label label12;
-        private Label label15;
-        private Label label17;
-        private Button BEliminarVehiculo;
         private TabPage actualizarTabPage;
         private DateTimePicker dTPFechaCompraVehiculoA;
         private Label label4;

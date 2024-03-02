@@ -138,11 +138,11 @@ namespace ProyectoBDDVistas.FORMS
             txtBNombreVehiculoA.Text = vehiculoSeleccionado.NombreCliente.Trim();
             txtBApellidoVehiculoA.Text = vehiculoSeleccionado.ApellidoCliente.Trim();
 
-            //eliminar
-            txtBNMatriculaVehiculoE.Text = vehiculoSeleccionado.NumMatriculaVehiculo.Trim();
-            txtdTPFechaCompraVehiculoE.Text = vehiculoSeleccionado.FechaCompraVehiculo.ToString("dd/MM/yyyy");
-            txtBNombreVehiculoE.Text = vehiculoSeleccionado.NombreCliente.Trim();
-            txtBApellidoVehiculoE.Text = vehiculoSeleccionado.ApellidoCliente.Trim();
+          
+            //txtBNMatriculaVehiculoE.Text = vehiculoSeleccionado.NumMatriculaVehiculo.Trim();
+            //txtdTPFechaCompraVehiculoE.Text = vehiculoSeleccionado.FechaCompraVehiculo.ToString("dd/MM/yyyy");
+            //txtBNombreVehiculoE.Text = vehiculoSeleccionado.NombreCliente.Trim();
+            //txtBApellidoVehiculoE.Text = vehiculoSeleccionado.ApellidoCliente.Trim();
         }
 
         private void BActualizarVehiculo_Click(object sender, EventArgs e)
@@ -156,14 +156,14 @@ namespace ProyectoBDDVistas.FORMS
 
         }
 
-        private void BEliminarVehiculo_Click(object sender, EventArgs e)
-        {
-            msv.EliminarVehiculoPorNumMatricula(Conexion, txtBNMatriculaVehiculoE.Text);
+        //private void BEliminarVehiculo_Click(object sender, EventArgs e)
+        //{
+        //    msv.EliminarVehiculoPorNumMatricula(Conexion, txtBNMatriculaVehiculoE.Text);
 
-            //volver a desplegar para actualizar la tabla
-            msv.DesplegarDatosVehiculos(Conexion, DGWVEHICULO);
-            msv.DesplegarPlacaMatriculaVehiculos(Conexion, dGVPlacVehiculos);
-        }
+        //    //volver a desplegar para actualizar la tabla
+        //    msv.DesplegarDatosVehiculos(Conexion, DGWVEHICULO);
+        //    msv.DesplegarPlacaMatriculaVehiculos(Conexion, dGVPlacVehiculos);
+        //}
 
         private void Form_Vehiculo_Load(object sender, EventArgs e)
         {
