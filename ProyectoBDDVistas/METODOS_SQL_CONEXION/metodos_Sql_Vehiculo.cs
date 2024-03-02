@@ -14,7 +14,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tabla = "VISTA_VEHICULO";
         public string tablaReplicada = "NUMMATRICULA_VEHICULO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL002";
+        public parametros parametros = new parametros();
+        public string idTaller = parametros.idTaller;
 
 
         public void DesplegarDatosVehiculos(SqlConnection conexion, DataGridView dataGridView)

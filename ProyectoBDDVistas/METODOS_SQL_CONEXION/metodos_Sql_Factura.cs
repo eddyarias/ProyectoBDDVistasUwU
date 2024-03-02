@@ -16,7 +16,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tablaCliente = "VISTA_CLIENTE";
         public string tablaReparacion = "VISTA_REPARACION";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL002";
+        public parametros parametros = new parametros();
+        public string idTaller = parametros.idTaller;
 
         public void DesplegarDatosFacturas(SqlConnection conexion, DataGridView dataGridView)
         {

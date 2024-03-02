@@ -14,7 +14,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tabla = "VISTA_CLIENTE";
 
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL002";
+        public parametros parametros = new parametros();
+        public string idTaller = parametros.idTaller;
 
         public void DesplegarDatosClientes(SqlConnection conexion, DataGridView dataGridView)
         {
@@ -22,6 +23,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             {
                 // Crear un adaptador SQL para cargar los datos
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla} WHERE ID_TALLER = {idTaller}", conexion);
+                //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {tabla}", conexion);
+
                 // Crear un DataTable para contener los datos
                 DataTable dataTable = new DataTable();
                 // Llenar el DataTable con los datos del adaptador

@@ -16,7 +16,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string talaCliente = "VISTA_CLIENTE";
         public string tablaVehiculo = "VISTA_VEHICULO";
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL002";
+        public parametros parametros = new parametros();
+        public string idTaller = parametros.idTaller;
         public void DesplegarDatosReparacion(SqlConnection conexion, DataGridView dataGridView)
         {
             try

@@ -15,7 +15,8 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
         public string tablaEmpleado = "VISTA_EMPLEADO";
 
         //CAMBIE SEGUN SU ROL
-        public string idTaller = "TALL002";
+        public parametros parametros = new parametros();
+        public string idTaller = parametros.idTaller;
 
         public void DesplegarDatosNumeroTelefono(SqlConnection conexion, DataGridView dataGridView)
         {
