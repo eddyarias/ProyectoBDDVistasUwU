@@ -28,19 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label3 = new Label();
-            panel1 = new Panel();
-            BBuscar = new Button();
-            label24 = new Label();
-            label23 = new Label();
-            comboBox3 = new ComboBox();
-            textBox20 = new TextBox();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            txtTadicional = new TextBox();
-            txtTelefono = new TextBox();
-            label29 = new Label();
-            label28 = new Label();
             label1 = new Label();
             label2 = new Label();
             label4 = new Label();
@@ -90,11 +79,6 @@
             label26 = new Label();
             panelEmpleado = new Panel();
             DGWEmpleado = new DataGridView();
-            txtNumTelefonoAct = new TextBox();
-            label30 = new Label();
-            txtTelefAdicionalAct = new TextBox();
-            label31 = new Label();
-            panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -102,69 +86,6 @@
             panelEmpleado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGWEmpleado).BeginInit();
             SuspendLayout();
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(592, 82);
-            label3.Name = "label3";
-            label3.Size = new Size(54, 15);
-            label3.TabIndex = 86;
-            label3.Text = "Consulta";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(BBuscar);
-            panel1.Controls.Add(label24);
-            panel1.Controls.Add(label23);
-            panel1.Controls.Add(comboBox3);
-            panel1.Controls.Add(textBox20);
-            panel1.Location = new Point(618, 100);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(332, 111);
-            panel1.TabIndex = 87;
-            // 
-            // BBuscar
-            // 
-            BBuscar.Location = new Point(103, 67);
-            BBuscar.Name = "BBuscar";
-            BBuscar.Size = new Size(115, 28);
-            BBuscar.TabIndex = 77;
-            BBuscar.Text = "Consultar";
-            BBuscar.UseVisualStyleBackColor = true;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Location = new Point(57, 28);
-            label24.Name = "label24";
-            label24.Size = new Size(0, 15);
-            label24.TabIndex = 81;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new Point(82, 18);
-            label23.Name = "label23";
-            label23.Size = new Size(0, 15);
-            label23.TabIndex = 78;
-            // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Nombre", "Apellido", "Salario", "Fecha inicio contrato", "cedula", "id_empleado" });
-            comboBox3.Location = new Point(19, 23);
-            comboBox3.Margin = new Padding(3, 2, 3, 2);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(151, 23);
-            comboBox3.TabIndex = 80;
-            // 
-            // textBox20
-            // 
-            textBox20.Location = new Point(176, 24);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new Size(142, 23);
-            textBox20.TabIndex = 79;
             // 
             // tabControl1
             // 
@@ -180,10 +101,6 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(txtTadicional);
-            tabPage1.Controls.Add(txtTelefono);
-            tabPage1.Controls.Add(label29);
-            tabPage1.Controls.Add(label28);
             tabPage1.Controls.Add(label1);
             tabPage1.Controls.Add(label2);
             tabPage1.Controls.Add(label4);
@@ -206,39 +123,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Registrar empleado";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // txtTadicional
-            // 
-            txtTadicional.Location = new Point(210, 172);
-            txtTadicional.Name = "txtTadicional";
-            txtTadicional.Size = new Size(186, 23);
-            txtTadicional.TabIndex = 111;
-            // 
-            // txtTelefono
-            // 
-            txtTelefono.Location = new Point(172, 141);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(224, 23);
-            txtTelefono.TabIndex = 110;
-            // 
-            // label29
-            // 
-            label29.AutoSize = true;
-            label29.Location = new Point(97, 175);
-            label29.Name = "label29";
-            label29.Size = new Size(107, 15);
-            label29.TabIndex = 109;
-            label29.Text = "Número Adicional:";
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.Location = new Point(57, 149);
-            label28.Name = "label28";
-            label28.Size = new Size(101, 15);
-            label28.TabIndex = 108;
-            label28.Text = "Numero teléfono:";
-            label28.Click += label28_Click;
             // 
             // label1
             // 
@@ -291,7 +175,7 @@
             // 
             // txtBsalEmpleadoRegistrar
             // 
-            txtBsalEmpleadoRegistrar.Location = new Point(172, 201);
+            txtBsalEmpleadoRegistrar.Location = new Point(172, 154);
             txtBsalEmpleadoRegistrar.Name = "txtBsalEmpleadoRegistrar";
             txtBsalEmpleadoRegistrar.Size = new Size(224, 23);
             txtBsalEmpleadoRegistrar.TabIndex = 107;
@@ -299,7 +183,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(36, 233);
+            label10.Location = new Point(37, 211);
             label10.Name = "label10";
             label10.Size = new Size(121, 15);
             label10.TabIndex = 103;
@@ -316,7 +200,7 @@
             // 
             // txtBfecEmpleadoRegistrar
             // 
-            txtBfecEmpleadoRegistrar.Location = new Point(172, 231);
+            txtBfecEmpleadoRegistrar.Location = new Point(175, 203);
             txtBfecEmpleadoRegistrar.Name = "txtBfecEmpleadoRegistrar";
             txtBfecEmpleadoRegistrar.Size = new Size(224, 23);
             txtBfecEmpleadoRegistrar.TabIndex = 105;
@@ -324,7 +208,7 @@
             // label25
             // 
             label25.AutoSize = true;
-            label25.Location = new Point(116, 203);
+            label25.Location = new Point(118, 162);
             label25.Name = "label25";
             label25.Size = new Size(45, 15);
             label25.TabIndex = 106;
@@ -346,7 +230,7 @@
             // 
             // BAgregar
             // 
-            BAgregar.Location = new Point(210, 259);
+            BAgregar.Location = new Point(196, 243);
             BAgregar.Margin = new Padding(3, 2, 3, 2);
             BAgregar.Name = "BAgregar";
             BAgregar.Size = new Size(82, 28);
@@ -357,10 +241,6 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(txtTelefAdicionalAct);
-            tabPage2.Controls.Add(label31);
-            tabPage2.Controls.Add(txtNumTelefonoAct);
-            tabPage2.Controls.Add(label30);
             tabPage2.Controls.Add(label5);
             tabPage2.Controls.Add(label6);
             tabPage2.Controls.Add(label7);
@@ -439,7 +319,7 @@
             // 
             // txtBsalEmpleadoAct
             // 
-            txtBsalEmpleadoAct.Location = new Point(161, 200);
+            txtBsalEmpleadoAct.Location = new Point(161, 145);
             txtBsalEmpleadoAct.Name = "txtBsalEmpleadoAct";
             txtBsalEmpleadoAct.Size = new Size(224, 23);
             txtBsalEmpleadoAct.TabIndex = 120;
@@ -447,7 +327,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(25, 235);
+            label12.Location = new Point(30, 197);
             label12.Name = "label12";
             label12.Size = new Size(121, 15);
             label12.TabIndex = 116;
@@ -464,7 +344,7 @@
             // 
             // txtBfecEmpleadoAct
             // 
-            txtBfecEmpleadoAct.Location = new Point(161, 231);
+            txtBfecEmpleadoAct.Location = new Point(161, 192);
             txtBfecEmpleadoAct.Name = "txtBfecEmpleadoAct";
             txtBfecEmpleadoAct.Size = new Size(224, 23);
             txtBfecEmpleadoAct.TabIndex = 118;
@@ -472,7 +352,7 @@
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(97, 208);
+            label27.Location = new Point(101, 148);
             label27.Name = "label27";
             label27.Size = new Size(45, 15);
             label27.TabIndex = 119;
@@ -705,38 +585,6 @@
             DGWEmpleado.CellContentClick += DGWEmpleado_CellContentClick;
             DGWEmpleado.DataBindingComplete += DGWEmpleado_DataBindingComplete;
             // 
-            // txtNumTelefonoAct
-            // 
-            txtNumTelefonoAct.Location = new Point(161, 135);
-            txtNumTelefonoAct.Name = "txtNumTelefonoAct";
-            txtNumTelefonoAct.Size = new Size(224, 23);
-            txtNumTelefonoAct.TabIndex = 122;
-            // 
-            // label30
-            // 
-            label30.AutoSize = true;
-            label30.Location = new Point(46, 143);
-            label30.Name = "label30";
-            label30.Size = new Size(101, 15);
-            label30.TabIndex = 121;
-            label30.Text = "Numero teléfono:";
-            // 
-            // txtTelefAdicionalAct
-            // 
-            txtTelefAdicionalAct.Location = new Point(199, 171);
-            txtTelefAdicionalAct.Name = "txtTelefAdicionalAct";
-            txtTelefAdicionalAct.Size = new Size(186, 23);
-            txtTelefAdicionalAct.TabIndex = 124;
-            // 
-            // label31
-            // 
-            label31.AutoSize = true;
-            label31.Location = new Point(86, 174);
-            label31.Name = "label31";
-            label31.Size = new Size(107, 15);
-            label31.TabIndex = 123;
-            label31.Text = "Número Adicional:";
-            // 
             // Form_Empleado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -745,16 +593,12 @@
             ControlBox = false;
             Controls.Add(panelEmpleado);
             Controls.Add(label26);
-            Controls.Add(label3);
-            Controls.Add(panel1);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form_Empleado";
             Text = "FormEmpleado";
             Load += Form_Empleado_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
@@ -765,18 +609,9 @@
             panelEmpleado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DGWEmpleado).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label3;
-        private Panel panel1;
-        private Button BBuscar;
-        private Label label24;
-        private Label label23;
-        private ComboBox comboBox3;
-        private TextBox textBox20;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private Button BAgregar;
@@ -826,15 +661,7 @@
         private TextBox txtBsalEmpleadoEli;
         private Label label19;
         private Label label18;
-        private TextBox txtTadicional;
-        private TextBox txtTelefono;
-        private Label label29;
-        private Label label28;
         private Panel panelEmpleado;
         private DataGridView DGWEmpleado;
-        private TextBox txtTelefAdicionalAct;
-        private Label label31;
-        private TextBox txtNumTelefonoAct;
-        private Label label30;
     }
 }

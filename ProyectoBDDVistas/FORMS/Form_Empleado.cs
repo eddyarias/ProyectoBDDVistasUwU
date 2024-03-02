@@ -32,7 +32,7 @@ namespace ProyectoBDDVistas.FORMS
 
         private void DGWEmpleado_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            /*  DGWEmpleado.AutoResizeColumns();
+            /* DGWEmpleado.AutoResizeColumns();
               DGWEmpleado.AutoResizeRows();
 
               // Ajustar el tamaño del DataGridView al de sus columnas y filas

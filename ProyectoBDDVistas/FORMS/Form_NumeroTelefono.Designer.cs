@@ -39,7 +39,7 @@
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1482, 40);
+            label1.Size = new Size(1213, 30);
             label1.TabIndex = 1;
             label1.Text = "NUMERO TELEFONO";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -49,23 +49,23 @@
             DGWFNumeroTelefono.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGWFNumeroTelefono.BackgroundColor = Color.White;
             DGWFNumeroTelefono.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGWFNumeroTelefono.Location = new Point(918, 140);
-            DGWFNumeroTelefono.Margin = new Padding(3, 4, 3, 4);
+            DGWFNumeroTelefono.Location = new Point(242, 50);
             DGWFNumeroTelefono.Name = "DGWFNumeroTelefono";
             DGWFNumeroTelefono.RowHeadersWidth = 51;
             DGWFNumeroTelefono.RowTemplate.Height = 24;
-            DGWFNumeroTelefono.Size = new Size(265, 244);
+            DGWFNumeroTelefono.Size = new Size(232, 183);
             DGWFNumeroTelefono.TabIndex = 85;
             DGWFNumeroTelefono.DataBindingComplete += DGWFNumeroTelefono_DataBindingComplete;
             // 
             // Form_NumeroTelefono
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1482, 853);
+            ClientSize = new Size(1213, 591);
             Controls.Add(DGWFNumeroTelefono);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form_NumeroTelefono";
             Text = "Form_NumeroTelefono";
             ((System.ComponentModel.ISupportInitialize)DGWFNumeroTelefono).EndInit();
