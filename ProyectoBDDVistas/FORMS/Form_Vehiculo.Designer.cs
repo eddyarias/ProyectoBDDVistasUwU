@@ -59,6 +59,7 @@
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
             dGVPlacVehiculos = new DataGridView();
+            BActualizarPVehiculo = new Button();
             ((System.ComponentModel.ISupportInitialize)DGWVEHICULO).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGWClientes).BeginInit();
             actualizarTabPage.SuspendLayout();
@@ -380,6 +381,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(BActualizarPVehiculo);
             tabPage2.Controls.Add(dGVPlacVehiculos);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
@@ -398,6 +400,16 @@
             dGVPlacVehiculos.Size = new Size(277, 670);
             dGVPlacVehiculos.TabIndex = 0;
             dGVPlacVehiculos.DataBindingComplete += dGVPlacVehiculos_DataBindingComplete;
+            // 
+            // BActualizarPVehiculo
+            // 
+            BActualizarPVehiculo.Location = new Point(1022, 74);
+            BActualizarPVehiculo.Name = "BActualizarPVehiculo";
+            BActualizarPVehiculo.Size = new Size(122, 74);
+            BActualizarPVehiculo.TabIndex = 1;
+            BActualizarPVehiculo.Text = "Actualizar";
+            BActualizarPVehiculo.UseVisualStyleBackColor = true;
+            BActualizarPVehiculo.Click += BActualizarPVehiculo_Click;
             // 
             // Form_Vehiculo
             // 
@@ -457,5 +469,6 @@
         private TabPage tabPage2;
         private DataGridView dGVPlacVehiculos;
         public DataGridView DGWClientes;
+        private Button BActualizarPVehiculo;
     }
 }

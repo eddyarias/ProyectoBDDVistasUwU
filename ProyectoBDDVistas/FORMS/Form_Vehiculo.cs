@@ -140,7 +140,7 @@ namespace ProyectoBDDVistas.FORMS
             txtBNombreVehiculoA.Text = vehiculoSeleccionado.NombreCliente.Trim();
             txtBApellidoVehiculoA.Text = vehiculoSeleccionado.ApellidoCliente.Trim();
 
-          
+
             //txtBNMatriculaVehiculoE.Text = vehiculoSeleccionado.NumMatriculaVehiculo.Trim();
             //txtdTPFechaCompraVehiculoE.Text = vehiculoSeleccionado.FechaCompraVehiculo.ToString("dd/MM/yyyy");
             //txtBNombreVehiculoE.Text = vehiculoSeleccionado.NombreCliente.Trim();
@@ -180,7 +180,7 @@ namespace ProyectoBDDVistas.FORMS
         private void dGVPlacVehiculos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             // Define el ancho deseado para cada columna
-            int[] columnWidths = { 200};
+            int[] columnWidths = { 200 };
 
             // Asegúrate de que el número de elementos en columnWidths coincida con el número de columnas en el DataGridView
             if (columnWidths.Length != dGVPlacVehiculos.Columns.Count)
@@ -194,6 +194,11 @@ namespace ProyectoBDDVistas.FORMS
             {
                 dGVPlacVehiculos.Columns[i].Width = columnWidths[i];
             }
+        }
+
+        private void BActualizarPVehiculo_Click(object sender, EventArgs e)
+        {
+            msv.DesplegarPlacaMatriculaVehiculos(Conexion, dGVPlacVehiculos);
         }
     }
 }
