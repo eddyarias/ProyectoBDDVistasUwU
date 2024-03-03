@@ -25,10 +25,12 @@ namespace ProyectoBDDVistas.FORMS
 
             InitializeComponent();
             Conexion = conexion;
-            msi = new metodo_sql_InfoCliente();
-            msi.DesplegarDatosCliente(conexion, dtgvInfoCliente);
-
-
+            parametros parametros = new parametros();
+            if (parametros.idTaller == "TALL001")
+            {
+                msi = new metodo_sql_InfoCliente();
+                msi.DesplegarDatosCliente(conexion, dtgvInfoCliente);
+            }
         }
     }
 }

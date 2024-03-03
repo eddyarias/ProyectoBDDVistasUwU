@@ -12,7 +12,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
     public class metodos_Sql_Vehiculo
     {
         public string tabla = "VISTA_VEHICULO";
-        public string tablaReplicada = "NUMMATRICULA_VEHICULO";
+        public string tablaReplicada = "PLACA_VEHICULO";
         //CAMBIE SEGUN SU ROL
         public parametros parametros = new parametros();
         public string idTaller = parametros.idTaller;
@@ -199,7 +199,7 @@ namespace ProyectoBDDVistas.METODOS_SQL_CONEXION
             try
             {
                 // Crear un adaptador SQL para cargar los datos
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT {tablaReplicada} FROM {tabla}", conexion);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT NUMMATRICULA_VEHICULO FROM {tablaReplicada}", conexion);
                 // Crear un DataTable para contener los datos
                 DataTable dataTable = new DataTable();
                 // Llenar el DataTable con los datos del adaptador
