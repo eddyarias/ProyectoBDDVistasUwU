@@ -63,6 +63,8 @@ namespace ProyectoBDDVistas.FORMS
 
         private void dGWCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            msc.DesplegarDatosClientes(Conexion, DGWClientes);
+
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 // Obtenemos el valor de la celda en la columna deseada

@@ -19,6 +19,7 @@ namespace ProyectoBDDVistas.FORMS
         public SqlConnection Conexion;
         public metodos_Sql_Cliente msc;
         public Cliente cliente;
+        
 
         public string nombreActEli;
         public string apellidoActEli;

@@ -428,7 +428,6 @@
         #endregion
         private DataGridView DGWVEHICULO;
         private Label label19;
-        private DataGridView DGWClientes;
         private Label label7;
         private Label label20;
         private TabPage actualizarTabPage;
@@ -457,5 +456,6 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private DataGridView dGVPlacVehiculos;
+        public DataGridView DGWClientes;
     }
 }

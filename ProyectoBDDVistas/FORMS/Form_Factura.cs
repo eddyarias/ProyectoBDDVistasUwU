@@ -91,6 +91,9 @@ namespace ProyectoBDDVistas.FORMS
             {
                 msf.InsertarFactura(Conexion, factura);
             }
+
+            msf.DesplegarDatosFacturas(Conexion, DGWFacturas);
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -156,12 +159,16 @@ namespace ProyectoBDDVistas.FORMS
             {
                 msf.ActualizarFactura(Conexion, facturaAct);
             }
+
+            msf.DesplegarDatosFacturas(Conexion, DGWFacturas);
+
         }
         public string idFacturaEliminar;
         private void button2_Click(object sender, EventArgs e)
         {
             idFacturaEliminar = txtBidFacActEli.Text;
             msf.EliminarFactura(Conexion, idFacturaEliminar);
+            msf.DesplegarDatosFacturas(Conexion, DGWFacturas);
         }
     }
 }
